@@ -1,0 +1,13 @@
+[diff]
+external = /usr/local/bin/araxisgitdiff
+renames = true
+
+[mergetool "araxismergetool"]
+cmd = /usr/local/bin/araxisgitmerge "$PWD/$REMOTE" "$PWD/$BASE" "$PWD/$LOCAL" "$PWD/$MERGED"
+trustExitCode = false
+
+[mergetool]
+keepBackup = false
+
+[merge]
+tool = araxismergetool
