@@ -6,6 +6,7 @@ syntax on
 set number
 set tabstop=4
 set shiftwidth=4
+set expandtab
 set showmatch
 set autoindent
 set smartindent
@@ -20,7 +21,7 @@ set nohls
 set incsearch
 set virtualedit=all
 set foldmethod=marker
-set foldclose=all
+" set foldclose=all
 set nomodeline
 set nowrap
 
@@ -38,6 +39,7 @@ let Tlist_Use_Right_Window = 1
 let Tlist_Sort_Type = "name"
 let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
 let Tlist_Show_One_File = 1
+nnoremap <silent> <Space>t :TlistToggle<CR>
 
 " Omnicomplete code complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -76,3 +78,13 @@ set wildmode=list:longest,full
 set ruler
 set lazyredraw
 set backspace=2
+
+" FuzzyFinder
+" let g:fuf_file_exclude = '.git,*.log,*.jpg,*.png,*.gif,*.swp' " use default
+let g:fuzzy_matching_limit = 70
+nnoremap <silent> <Space>fb :FufBuffer<CR>
+nnoremap <silent> <Space>ff :FufFile<CR>
+nnoremap <silent> <Space>fd :FufDir<CR>
+nnoremap <silent> <Space>fm :FufMruFile<CR>
+nnoremap <silent> <Space>fc :FufMruCmd<CR>
+nnoremap <silent> <C-]> :FufTag! <C-r>=expand('<cword>')<CR><CR>
