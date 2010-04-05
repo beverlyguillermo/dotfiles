@@ -25,7 +25,12 @@ set foldmethod=marker
 set nomodeline
 set nowrap
 
-colorscheme moria
+" Pressing < or > will let you indent/unident selected lines
+vnoremap < <gv
+vnoremap > >gv
+
+
+colorscheme eclipse
 
 filetype plugin on
 filetype indent on
