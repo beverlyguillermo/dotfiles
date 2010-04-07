@@ -30,7 +30,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 
-colorscheme eclipse
+colorscheme google
 
 filetype plugin on
 filetype indent on
