@@ -88,11 +88,11 @@ set lazyredraw
 set backspace=2
 
 " FuzzyFinder
-" let g:fuf_file_exclude = '.git,*.log,*.jpg,*.png,*.gif,*.swp' " use default
-let g:fuzzy_matching_limit = 70
-nnoremap <silent> <Space>fb :FufBuffer<CR>
-nnoremap <silent> <Space>ff :FufFile<CR>
-nnoremap <silent> <Space>fd :FufDir<CR>
-nnoremap <silent> <Space>fm :FufMruFile<CR>
-nnoremap <silent> <Space>fc :FufMruCmd<CR>
-nnoremap <silent> <C-]> :FufTag! <C-r>=expand('<cword>')<CR><CR>
+"nnoremap <silent> <Space>fc :FufMruCmd<CR>
+"nnoremap <silent> <C-]> :FufTag! <C-r>=expand('<cword>')<CR><CR>
+
+nnoremap <silent> <Space>ff :FuzzyFinderTextMate<CR>
+
+" Project plugin
+" nmap <silent> <Space>P <Plug>ToggleProject
+nmap <silent> <Leader>P <Plug>ToggleProject
