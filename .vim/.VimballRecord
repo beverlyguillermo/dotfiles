@@ -1,1 +1,2 @@
-supertab.vba: call delete('/Users/beverly/.vim/doc/supertab.txt')|call delete('/Users/beverly/.vim/plugin/supertab.vim')
+supertab.vba: call delete('~/.vim/doc/supertab.txt')|call delete('~/.vim/plugin/supertab.vim')
+delimitMate.vba: call delete('~/.vim/doc/delimitMate.txt')|call delete('~/.vim/plugin/delimitMate.vim')

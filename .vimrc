@@ -24,13 +24,16 @@ set foldmethod=marker
 " set foldclose=all
 set nomodeline
 set nowrap
+set noea " keep buffers the same size when buffers are closed
+"set equalalways " i.e. make buffers equal all the time
+set ff=unix
 
-" Pressing < or > will let you indent/unident selected lines
+" Pressing Shift-< or Shift-> will let you indent/unident selected lines,
+" allow it to occur multiple times in visual mode
 vnoremap < <gv
 vnoremap > >gv
 
-
-colorscheme google
+colorscheme kellys
 
 filetype plugin on
 filetype indent on
