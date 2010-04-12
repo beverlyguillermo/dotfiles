@@ -91,7 +91,7 @@ set backspace=2
 "nnoremap <silent> <Space>fc :FufMruCmd<CR>
 "nnoremap <silent> <C-]> :FufTag! <C-r>=expand('<cword>')<CR><CR>
 
-nnoremap <silent> <Space>ff :FuzzyFinderTextMate<CR>
+nnoremap <silent> <Leader>be :FuzzyFinderTextMate<CR>
 
 " Project plugin
 " nmap <silent> <Space>P <Plug>ToggleProject
