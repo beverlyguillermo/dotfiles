@@ -20,7 +20,7 @@
 /instance/com.adobe.flexbuilder.project/flexBuilderVersion=4.0.0.272416
 @com.adobe.flexbuilder.mxml.editor=4.0.0.272416
 /instance/org.eclipse.ui.editors/lineNumberRuler=true
-/instance/org.eclipse.ui.browser/internalWebBrowserHistory=file\:/Applications/Adobe Flash Builder 4 Plug-in/eclipse/plugins/com.adobe.flexbuilder.ui_4.0.0.272416/welcome/welcome.html?firstLaunch\=false&edition\=prem&productType\=CS5&version\=400|*|file\:/Applications/Adobe Flash Builder 4 Plug-in/eclipse/plugins/com.adobe.flexbuilder.ui_4.0.0.272416/welcome/welcome.html?firstLaunch\=false&edition\=prem&version\=400|*|file\:/Applications/Adobe Flash Builder Plug-in Beta 2/eclipse/plugins/com.adobe.flexbuilder.ui_4.0.0.253292/welcome/welcome.html|*|file\:/Applications/Adobe Flash Builder Plug-in Beta/eclipse/plugins/com.adobe.flexbuilder.ui_4.0.0.235740/welcome/welcome.html|*|file\:///Users/beverlyguillermo/Work/projects/Galileo/html-template/index.template.html|*|file\:/Users/beverlyguillermo/Work/projects/Galileo/html-template/index.template.html|*|file\:/Applications/Adobe%20Flex%20Builder%203%20Plug-in/eclipse/plugins/com.adobe.flexbuilder.ui_3.0.214193/welcome/welcome.html?firstLaunch\=true|*|
+/instance/org.eclipse.ui.browser/internalWebBrowserHistory=
 /instance/org.eclipse.ui.editors/printMargin=true
 @com.adobe.flexbuilder.flexunit=4.0.0.272416
 /configuration/org.eclipse.ui.ide/SHOW_WORKSPACE_SELECTION_DIALOG=false
@@ -32,7 +32,6 @@
 /instance/FlexPrettyPrintCommand/Actionscript.blankLinesToKeep=0
 /instance/org.eclipse.wst.sse.ui/useQuickDiffPrefPage=true
 /instance/FlexPrettyPrintCommand/Actionscript.blankLinesBeforeFunctions=1
-/instance/org.eclipse.core.resources/pathvariable.DOCUMENTS=/Users/beverlyguillermo/Work/projects
 /instance/FlexPrettyPrintCommand/Actionscript.spacesAfterLabel=1
 /instance/org.eclipse.core.resources/version=1
 /instance/org.eclipse.wst.sse.ui/useAnnotationsPrefPage=true
@@ -64,7 +63,7 @@
 /instance/FlexPrettyPrintCommand/MXML.attrsPerLine=1
 /instance/org.eclipse.dltk.ui/useQuickDiffPrefPage=true
 /instance/FlexPrettyPrintCommand/MXML.wrapIndentStyle=1001
-/configuration/org.eclipse.ui.ide/RECENT_WORKSPACES=/Users/beverlyguillermo/Work/projects\n/Users/beverlyguillermo/Work\ncd /Users/beverlyguillermo/Work/projects
+/configuration/org.eclipse.ui.ide/RECENT_WORKSPACES=
 /instance/org.eclipse.dltk.validators.core/org.eclipse.dltk.validators.core.PREF_VALIDATOR_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<validatorSettings/>\n
 /instance/com.adobe.flexbuilder.editors.common/activeViewIDs2=com.adobe.flexbuilder.navigator,org.eclipse.ui.views.ContentOutline,org.cfeclipse.cfml.views.snips.sniptreeview
 /instance/FlexPrettyPrintCommand/ASRearr_ElementSortNamespaces=true
