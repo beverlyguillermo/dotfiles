@@ -11,3 +11,5 @@ keepBackup = false
 
 [merge]
 tool = araxismergetool
+[core]
+	excludesfile = /Users/beverlyguillermo/.gitignore
