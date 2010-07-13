@@ -11,3 +11,12 @@ keepBackup = false
 
 [merge]
 tool = araxismergetool
+
+[color]
+    ui = auto
+
+[core]
+    excludesfile = ~/.gitignore
+
+[svn]
+    rmdir = true
