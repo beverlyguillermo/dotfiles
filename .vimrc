@@ -14,7 +14,8 @@ set nocompatible
 set guioptions-=T
 if has('gui_running')
   "set guifont=monaco:h10
-  set guifont=inconsolata:h12
+  set guifont=menlo:h10
+  "set guifont=inconsolata:h12
 endif
 set noerrorbells
 set visualbell
@@ -100,3 +101,6 @@ nnoremap <silent> <Leader>be :FuzzyFinderTextMate<CR>
 " Project plugin
 " nmap <silent> <Space>P <Plug>ToggleProject
 nmap <silent> <Leader>p <Plug>ToggleProject
+
+" Pressing i to insert and ii to escape
+imap ii <Esc>
