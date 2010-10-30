@@ -50,7 +50,13 @@ set formatoptions=qrn1
 vnoremap < <gv
 vnoremap > >gv
 
-colorscheme kellys
+colorscheme tir_black
+"colorscheme wuye
+"colorscheme twilight
+"colorscheme Jellybeans
+"colorscheme Darkspectrum
+"colorscheme Moria
+"colorscheme Lucius
 
 filetype plugin on
 filetype indent on
@@ -77,10 +83,10 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 
 " Cleaner IDE functionality
 " http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
-set completeopt=longest,menuone " improve completion
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' : \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+"set completeopt=longest,menuone " improve completion
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+"inoremap <expr> <C-n> pumvisible() ? '<C-n>' : \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+"inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 
 " Remove trailing white space
@@ -102,6 +108,7 @@ let g:SuperTabDefaultCompletionType="context"
 
 " Err, backup files locations
 set backup
+
 set backupdir=$HOME/.vim/backup
 set directory=$HOME/.vim/temp
 

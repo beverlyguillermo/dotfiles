@@ -1,16 +1,14 @@
 [diff]
-external = /usr/local/bin/araxisgitdiff
-renames = true
+  tool = araxis
 
-[mergetool "araxismergetool"]
-cmd = /usr/local/bin/araxisgitmerge "$PWD/$REMOTE" "$PWD/$BASE" "$PWD/$LOCAL" "$PWD/$MERGED"
-trustExitCode = false
-
-[mergetool]
-keepBackup = false
+[difftool "araxis"]
+  path = /usr/local/bin/compare
 
 [merge]
-tool = araxismergetool
+  tool = araxis
+
+[mergetool "araxis"]
+  path = /usr/local/bin/compare
 
 [color]
     ui = auto
@@ -20,3 +18,7 @@ tool = araxismergetool
 
 [svn]
     rmdir = true
+
+[user]
+    name = Beverly Guillermo
+    email = beverly.guillermo@gmail.com
