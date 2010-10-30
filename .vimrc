@@ -11,28 +11,43 @@ set shiftwidth=2
 set expandtab
 set showmatch
 set autoindent
-set autowrite  " write the old file out when switching between files
-set hidden " switch between buffers without saving
+" set autowrite  " write the old file out when switching between files
+" switch between buffers without saving, so the must save first
+" error doesn't appear
+set hidden
 set smartindent
 set nocompatible
+" Set up the gui cursor to look nice
+set guicursor=n-v-c:block-Cursor-blinkon0
+set guicursor+=ve:ver35-Cursor
+set guicursor+=o:hor50-Cursor
+set guicursor+=i-ci:ver25-Cursor
+set guicursor+=r-cr:hor20-Cursor
+set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
+" set the gui options the way I like
+set guioptions=ac
 set guioptions-=T " hide toolbar in gui mode
 if has('gui_running')
   "set guifont=monaco:h10
   set guifont=menlo:h10
   "set guifont=inconsolata:h12
 endif
-set noerrorbells
-set visualbell
-set vb t_vb=
+set noerrorbells "remove the beeping
+set visualbell " remove the beeping
+set vb t_vb= " remove the beeping
 set showcmd
 set ruler
 set nohls
 set incsearch  " incremental search
 set hlsearch " highlight search
+" When the page starts to scroll, keep the cursor 8 lines from the top and 8
+" lines from the bottom
+set scrolloff=8
+" set wrapscan " wrap scans
 " set ignorecase " ignore case in search
 " set smartcase
 set virtualedit=all
-set foldenable
+"set foldenable
 set foldmethod=marker
 " set foldclose=all
 set nomodeline
@@ -40,9 +55,15 @@ set nowrap
 set noea " keep buffers the same size when buffers are closed
 "set equalalways " i.e. make buffers equal all the time
 set ff=unix
-set timeoutlen=500
-set textwidth=79
-set formatoptions=qrn1
+"set timeoutlen=500
+"set textwidth=79
+"set formatoptions=qrn1
+
+" Allow the cursor to go in to "invalid" places
+set virtualedit=all
+
+" These things start comment lines
+" set comments=sl:/*,mb:\ *,ex:\ */,O://,b:#,:%,:XCOMM,n:>,fb:-
 
 
 " Pressing Shift-< or Shift-> will let you indent/unident selected lines,
@@ -83,11 +104,10 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 
 " Cleaner IDE functionality
 " http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
-"set completeopt=longest,menuone " improve completion
-"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-"inoremap <expr> <C-n> pumvisible() ? '<C-n>' : \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-"inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
+set completeopt=longest,menuone " improve completion
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' : \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " Remove trailing white space
 autocmd BufRead * silent! %s/[\r \t]\+$//
@@ -108,7 +128,6 @@ let g:SuperTabDefaultCompletionType="context"
 
 " Err, backup files locations
 set backup
-
 set backupdir=$HOME/.vim/backup
 set directory=$HOME/.vim/temp
 
@@ -132,5 +151,88 @@ nmap <silent> <Leader>p <Plug>ToggleProject
 " Pressing i to insert and ii to escape
 imap ii <Esc>
 
-" Delete all buffers
-nmap <silent> ,da :exec "1,".bufnr('$')."bd"<cr>
+" Maps to make handling windows a bit easier
+noremap <silent> ,h :wincmd h<CR>
+noremap <silent> ,j :wincmd j<CR>
+noremap <silent> ,k :wincmd k<CR>
+noremap <silent> ,l :wincmd l<CR>
+noremap <silent> ,sb :wincmd p<CR>
+noremap <silent> <C-F9>  :vertical resize -10<CR>
+noremap <silent> <C-F10> :resize +10<CR>
+noremap <silent> <C-F11> :resize -10<CR>
+noremap <silent> <C-F12> :vertical resize +10<CR>
+noremap <silent> ,s8 :vertical resize 83<CR>
+noremap <silent> ,cj :wincmd j<CR>:close<CR>
+noremap <silent> ,ck :wincmd k<CR>:close<CR>
+noremap <silent> ,ch :wincmd h<CR>:close<CR>
+noremap <silent> ,cl :wincmd l<CR>:close<CR>
+noremap <silent> ,cc :close<CR>
+noremap <silent> ,cw :cclose<CR>
+noremap <silent> ,ml <C-W>L
+noremap <silent> ,mk <C-W>K
+noremap <silent> ,mh <C-W>H
+noremap <silent> ,mj <C-W>J
+noremap <silent> <C-7> <C-W>>
+noremap <silent> <C-8> <C-W>+
+noremap <silent> <C-9> <C-W>+
+noremap <silent> <C-0> <C-W>>
+
+" Buffer commands
+noremap <silent> ,bd :bd<CR>
+
+" Make horizontal scrolling easier
+nmap <silent> <C-o> 10zl
+nmap <silent> <C-i> 10zh
+
+" Highlight all instances of the current word under the cursor
+nmap <silent> ^ :setl hls<CR>:let @/="<C-r><C-w>"<CR>
+
+" Search the current file for what's currently in the search
+" register and display matches
+nmap <silent> ,gs
+     \ :vimgrep /<C-r>// %<CR>:ccl<CR>:cwin<CR><C-W>J:set nohls<CR>
+
+" Search the current file for the word under the cursor and display matches
+nmap <silent> ,gw
+     \ :vimgrep /<C-r><C-w>/ %<CR>:ccl<CR>:cwin<CR><C-W>J:set nohls<CR>
+
+" Search the current file for the WORD under the cursor and display matches
+nmap <silent> ,gW
+     \ :vimgrep /<C-r><C-a>/ %<CR>:ccl<CR>:cwin<CR><C-W>J:set nohls<CR>
+
+" Swap two words
+nmap <silent> gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
+
+" Underline the current line with '='
+nmap <silent> ,ul :t.\|s/./=/g\|set nohls<cr>
+
+" Toggle paste mode
+nmap <silent> ,p :set invpaste<CR>:set paste?<CR>
+
+" cd to the directory containing the file in the buffer
+nmap <silent> ,cd :lcd %:h<CR>
+nmap <silent> ,md :!mkdir -p %:p:h<CR>
+
+" Turn off that stupid highlight search
+nmap <silent> ,n :set invhls<CR>:set hls?<CR>
+
+" put the vim directives for my file editing settings in
+nmap <silent> ,vi
+     \ ovim:set ts=4 sts=4 sw=4:<CR>vim600:fdm=marker fdl=1 fdc=0:<ESC>
+
+" Show all available VIM servers
+nmap <silent> ,ss :echo serverlist()<CR>
+
+" The following beast is something i didn't write... it will return the
+" syntax highlighting group that the current "thing" under the cursor
+" belongs to -- very useful for figuring out what to change as far as
+" syntax highlighting goes.
+nmap <silent> <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name")
+     \ . '> trans<' . synIDattr(synID(line("."),col("."),0),"name")
+     \ . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name")
+     \ . ">"<CR>
+
+" Map CTRL-E to do what ',' used to do
+nnoremap <c-e> ,
+vnoremap <c-e> ,
+
