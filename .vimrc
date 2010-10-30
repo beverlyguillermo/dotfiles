@@ -4,14 +4,18 @@ autocmd! bufwritepost .vimrc source %
 " Vim configs
 syntax on
 set number
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+" set linespace=1 " line height
 set expandtab
 set showmatch
 set autoindent
+set autowrite  " write the old file out when switching between files
+set hidden " switch between buffers without saving
 set smartindent
 set nocompatible
-set guioptions-=T
+set guioptions-=T " hide toolbar in gui mode
 if has('gui_running')
   "set guifont=monaco:h10
   set guifont=menlo:h10
@@ -23,8 +27,12 @@ set vb t_vb=
 set showcmd
 set ruler
 set nohls
-set incsearch
+set incsearch  " incremental search
+set hlsearch " highlight search
+" set ignorecase " ignore case in search
+" set smartcase
 set virtualedit=all
+set foldenable
 set foldmethod=marker
 " set foldclose=all
 set nomodeline
@@ -32,6 +40,10 @@ set nowrap
 set noea " keep buffers the same size when buffers are closed
 "set equalalways " i.e. make buffers equal all the time
 set ff=unix
+set timeoutlen=500
+set textwidth=79
+set formatoptions=qrn1
+
 
 " Pressing Shift-< or Shift-> will let you indent/unident selected lines,
 " allow it to occur multiple times in visual mode
@@ -62,6 +74,14 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
+
+" Cleaner IDE functionality
+" http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
+set completeopt=longest,menuone " improve completion
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' : \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
 
 " Remove trailing white space
 autocmd BufRead * silent! %s/[\r \t]\+$//
@@ -104,3 +124,6 @@ nmap <silent> <Leader>p <Plug>ToggleProject
 
 " Pressing i to insert and ii to escape
 imap ii <Esc>
+
+" Delete all buffers
+nmap <silent> ,da :exec "1,".bufnr('$')."bd"<cr>
