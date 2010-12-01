@@ -1,2 +1,3 @@
 supertab.vba: call delete('~/.vim/doc/supertab.txt')|call delete('~/.vim/plugin/supertab.vim')
 delimitMate.vba: call delete('~/.vim/doc/delimitMate.txt')|call delete('~/.vim/plugin/delimitMate.vim')
+html5.vim-0.26.vba: call delete('~/.vim/autoload/xml/aria.vim')
