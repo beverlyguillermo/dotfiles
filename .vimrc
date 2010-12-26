@@ -17,6 +17,7 @@ set autoindent
 set hidden
 set smartindent
 set nocompatible
+
 " Set up the gui cursor to look nice
 set guicursor=n-v-c:block-Cursor-blinkon0
 set guicursor+=ve:ver35-Cursor
@@ -24,8 +25,13 @@ set guicursor+=o:hor50-Cursor
 set guicursor+=i-ci:ver25-Cursor
 set guicursor+=r-cr:hor20-Cursor
 set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
-" set the gui options the way I like
-set guioptions=ac
+
+" Set cursor line
+nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+set cursorline
+
+"set the gui options the way I like
+"set guioptions=ac
 set guioptions-=T " hide toolbar in gui mode
 if has('gui_running')
   "set guifont=monaco:h10
@@ -71,13 +77,14 @@ set virtualedit=all
 vnoremap < <gv
 vnoremap > >gv
 
-colorscheme tir_black
+"colorscheme tir_black
 "colorscheme wuye
 "colorscheme twilight
 "colorscheme Jellybeans
-"colorscheme Darkspectrum
+colorscheme Darkspectrum
 "colorscheme Moria
 "colorscheme Lucius
+"colorscheme jammy
 
 filetype plugin on
 filetype indent on
@@ -143,10 +150,14 @@ set backspace=2
 "nnoremap <silent> <C-]> :FufTag! <C-r>=expand('<cword>')<CR><CR>
 
 nnoremap <silent> <Leader>be :FuzzyFinderTextMate<CR>
+nnoremap <silent> <Leader>bbe :FuzzyFinderBuffer<CR>
+let g:fuzzy_ignore = "*.log"
+let g:fuzzy_matching_limit = 70
+
 
 " Project plugin
-" nmap <silent> <Space>P <Plug>ToggleProject
-nmap <silent> <Leader>p <Plug>ToggleProject
+nmap <silent> <Space>p <Plug>ToggleProject
+" nmap <silent> <Leader>p <Plug>ToggleProject
 
 " Pressing i to insert and ii to escape
 imap ii <Esc>
@@ -168,6 +179,7 @@ noremap <silent> ,ch :wincmd h<CR>:close<CR>
 noremap <silent> ,cl :wincmd l<CR>:close<CR>
 noremap <silent> ,cc :close<CR>
 noremap <silent> ,cw :cclose<CR>
+noremap <silent> ,bd :bd<CR>
 noremap <silent> ,ml <C-W>L
 noremap <silent> ,mk <C-W>K
 noremap <silent> ,mh <C-W>H
@@ -236,3 +248,4 @@ nmap <silent> <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name")
 nnoremap <c-e> ,
 vnoremap <c-e> ,
 
+nmap <silent> ,tidy :! tidy -xml -utf8 -mi %:p<CR>:e<CR>
