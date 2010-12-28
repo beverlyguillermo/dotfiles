@@ -18,26 +18,28 @@ set hidden
 set smartindent
 set nocompatible
 
-" Set up the gui cursor to look nice
-set guicursor=n-v-c:block-Cursor-blinkon0
-set guicursor+=ve:ver35-Cursor
-set guicursor+=o:hor50-Cursor
-set guicursor+=i-ci:ver25-Cursor
-set guicursor+=r-cr:hor20-Cursor
-set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
-
 " Set cursor line
 nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
-set cursorline
 
 "set the gui options the way I like
 "set guioptions=ac
-set guioptions-=T " hide toolbar in gui mode
 if has('gui_running')
+  set guioptions-=T " hide toolbar in gui mode
   "set guifont=monaco:h10
   set guifont=menlo:h10
   "set guifont=inconsolata:h12
+
+  " Set up the gui cursor to look nice
+  set guicursor=n-v-c:block-Cursor-blinkon0
+  set guicursor+=ve:ver35-Cursor
+  set guicursor+=o:hor50-Cursor
+  set guicursor+=i-ci:ver25-Cursor
+  set guicursor+=r-cr:hor20-Cursor
+  set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
+
+  set cursorline
 endif
+
 set noerrorbells "remove the beeping
 set visualbell " remove the beeping
 set vb t_vb= " remove the beeping
@@ -77,6 +79,7 @@ set virtualedit=all
 vnoremap < <gv
 vnoremap > >gv
 
+if has('gui_running')
 "colorscheme tir_black
 "colorscheme wuye
 "colorscheme twilight
@@ -85,20 +88,21 @@ colorscheme Darkspectrum
 "colorscheme Moria
 "colorscheme Lucius
 "colorscheme jammy
+endif
 
 filetype plugin on
 filetype indent on
 filetype on
 
 " taglist.vim plugin
-let Tlist_Process_File_Always = 1
-let Tlist_File_Fold_Auto_Close = 1
-let Tlist_Enable_Fold_Column = 1
-let Tlist_Use_Right_Window = 1
-let Tlist_Sort_Type = "name"
-let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-let Tlist_Show_One_File = 1
-nnoremap <silent> <Space>t :TlistToggle<CR>
+" let Tlist_Process_File_Always = 1
+" let Tlist_File_Fold_Auto_Close = 1
+" let Tlist_Enable_Fold_Column = 1
+" let Tlist_Use_Right_Window = 1
+" let Tlist_Sort_Type = "name"
+" let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
+" let Tlist_Show_One_File = 1
+" nnoremap <silent> <Space>t :TlistToggle<CR>
 
 " Omnicomplete code complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
