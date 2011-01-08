@@ -1,0 +1,27 @@
+[diff]
+  tool = araxis
+
+[difftool "araxis"]
+  path = /usr/local/bin/compare
+
+[merge]
+  tool = araxis
+
+[mergetool "araxis"]
+  path = /usr/local/bin/compare
+
+[color]
+    ui = auto
+
+[core]
+    excludesfile = ~/.gitignore
+    editor = vim
+
+[svn]
+    rmdir = true
+
+[user]
+    name = Beverly Guillermo
+    email = beverly.guillermo@gmail.com
+[apply]
+	whitespace = nowarn
