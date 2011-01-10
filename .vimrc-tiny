@@ -27,7 +27,7 @@ if has('gui_running')
   "set guioptions-=T " hide toolbar in gui mode
   "set guifont=monaco:h10
   "set guifont=menlo:h10
-  "set guifont=inconsolata:h12
+  set guifont=inconsolata\ medium\ 10
 
   " Set up the gui cursor to look nice
   set guicursor=n-v-c:block-Cursor-blinkon0
@@ -84,10 +84,11 @@ if has('gui_running')
 "colorscheme wuye
 "colorscheme twilight
 "colorscheme Jellybeans
-colorscheme Darkspectrum
+"colorscheme Darkspectrum
 "colorscheme Moria
 "colorscheme Lucius
 "colorscheme jammy
+colorscheme ironman
 endif
 
 filetype plugin on
@@ -138,9 +139,9 @@ set statusline=%-(%F%m%r%h%w%)\ %{&ff}/%Y/%{&encoding}\ %=%(@\%03.3b\ %Ll\ %l,%v
 let g:SuperTabDefaultCompletionType="context"
 
 " Err, backup files locations
-set backup
-set backupdir=$HOME/.vim/backup
-set directory=$HOME/.vim/temp
+"set backup
+"set backupdir=$HOME/.vim/backup
+"set directory=$HOME/.vim/temp
 
 " Autocompletion for commands
 set wildmenu
