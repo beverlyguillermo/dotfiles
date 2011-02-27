@@ -25,7 +25,7 @@ if has('gui_running')
   set guioptions-=T " hide toolbar in gui mode
   "set guifont=monaco:h10
   "set guifont=menlo:h10
-  "set guifont=inconsolata:h12
+  "set guifont=Inconsolata\ 10
 
   " Set up the gui cursor to look nice
   set guicursor=n-v-c:block-Cursor-blinkon0
@@ -236,3 +236,6 @@ nnoremap <c-e> ,
 vnoremap <c-e> ,
 
 nmap <silent> ,tidy :! tidy -xml -utf8 -mi %:p<CR>:e<CR>
+
+nmap <silent> ,p :NERDTreeToggle<CR>
+nmap <silent> ,t <Leader>t
