@@ -1,4 +1,4 @@
-export PS1="[\[\033[1;32m\]\$(date +%H:%M)\[\033[0;37m\]:\w\[\033[1;37m\]]\n\[\033[0;37m\]\u@\h:$\[\033[0m\] "
+export PS1="[\[\033[0;37m\]\u@\h:\[\033[1;32m\]\$(date +%H:%M)\[\033[0;37m\]:\w\[\033[1;37m\]]\n$\[\033[0m\] "
 export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
