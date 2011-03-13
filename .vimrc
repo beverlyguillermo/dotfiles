@@ -23,9 +23,18 @@ set nocompatible
 if has('gui_running')
 
   set guioptions-=T " hide toolbar in gui mode
+  "MacOS font
   "set guifont=monaco:h10
+  "Windows Font
   "set guifont=menlo:h10
+  "ttf-inconsolata
   "set guifont=Inconsolata\ 10
+  "xfonts-jmk
+  "  $ sudo rm /etc/fonts/conf.d/70-no-bitmaps.conf
+  "  $ sudo fc-cache -f -v
+  "set guifont=Neep\ 18
+  "ttf-bitstream-vera
+  set guifont=Bitstream\ Vera\ Sans\ Mono\ 8
 
   " Set up the gui cursor to look nice
   set guicursor=n-v-c:block-Cursor-blinkon0
@@ -88,6 +97,7 @@ if has('gui_running')
 "colorscheme Moria
 "colorscheme Lucius
 "colorscheme jammy
+colorscheme earendel
 endif
 
 filetype plugin on
@@ -236,6 +246,10 @@ nnoremap <c-e> ,
 vnoremap <c-e> ,
 
 nmap <silent> ,tidy :! tidy -xml -utf8 -mi %:p<CR>:e<CR>
+<<<<<<< HEAD
 
 nmap <silent> ,p :NERDTreeToggle<CR>
 nmap <silent> ,t <Leader>t
+=======
+nmap <silent> <Space>p :NERDTreeToggle<CR>
+>>>>>>> 6455669d4afa24c7f4be63e6d62692d11068f85c
