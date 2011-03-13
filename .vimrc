@@ -246,7 +246,5 @@ nnoremap <c-e> ,
 vnoremap <c-e> ,
 
 nmap <silent> ,tidy :! tidy -xml -utf8 -mi %:p<CR>:e<CR>
-<<<<<<< HEAD
-
 nmap <silent> ,p :NERDTreeToggle<CR>
 nmap <silent> ,t <Leader>t
