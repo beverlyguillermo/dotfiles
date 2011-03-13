@@ -250,6 +250,3 @@ nmap <silent> ,tidy :! tidy -xml -utf8 -mi %:p<CR>:e<CR>
 
 nmap <silent> ,p :NERDTreeToggle<CR>
 nmap <silent> ,t <Leader>t
-=======
-nmap <silent> <Space>p :NERDTreeToggle<CR>
->>>>>>> 6455669d4afa24c7f4be63e6d62692d11068f85c
