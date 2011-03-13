@@ -1,14 +1,8 @@
 [diff]
-  tool = araxis
-
-[difftool "araxis"]
-  path = /usr/local/bin/compare
+  tool = meld
 
 [merge]
-  tool = araxis
-
-[mergetool "araxis"]
-  path = /usr/local/bin/compare
+  tool = merge
 
 [color]
     ui = auto
