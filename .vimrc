@@ -26,7 +26,7 @@ if has('gui_running')
   "MacOS font
   "set guifont=monaco:h10
   "Windows Font
-  "set guifont=menlo:h10
+  "set guifont=menlo:h12
   "ttf-inconsolata
   "set guifont=Inconsolata\ 10
   "xfonts-jmk
@@ -97,7 +97,10 @@ if has('gui_running')
 "colorscheme Moria
 "colorscheme Lucius
 "colorscheme jammy
-colorscheme earendel
+"colorscheme earendel
+"let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
 endif
 
 filetype plugin on
