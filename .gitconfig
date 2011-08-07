@@ -16,6 +16,7 @@
 [core]
     excludesfile = ~/.gitignore
     editor = vim
+    filemode = false
 
 [svn]
     rmdir = true
