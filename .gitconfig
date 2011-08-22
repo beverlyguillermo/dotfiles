@@ -11,18 +11,18 @@
   path = /usr/local/bin/compare
 
 [color]
-    ui = auto
+  ui = auto
 
 [core]
-    excludesfile = ~/.gitignore
-    editor = vim
-    filemode = false
+  excludesfile = ~/.gitignore
+  editor = vim -f
+  filemode = false
 
 [svn]
-    rmdir = true
+  rmdir = true
 
 [user]
-    name = Beverly Guillermo
-    email = beverly.guillermo@gmail.com
+  name = Beverly Guillermo
+  email = beverly.guillermo@gmail.com
 [apply]
-	whitespace = nowarn
+  whitespace = nowarn

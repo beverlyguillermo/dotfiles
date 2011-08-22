@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/beverlyguillermo/Sites/ClockMeRails'
+let g:netrw_dirhist_2='/Users/beverlyguillermo/Sites/compactmd'
+let g:netrw_dirhist_3='/home/beverlyguillermo/Sites/compactmd/kohana/application/config'
+let g:netrw_dirhist_4='/Users/beverlyguillermo/Sites/compactmd/kohana/application/views/admin/lessons/index.php'
+let g:netrw_dirhist_5='/Users/beverlyguillermo/Sites/crosby-marketing/wp/wp-content/themes/crosby'
+let g:netrw_dirhist_6='/Users/beverlyguillermo/Sites/compactmd/wp/wp-content/themes/compactmd/_'
+let g:netrw_dirhist_7='/Users/beverlyguillermo/Sites/compactmd/wp/wp-content/themes/compactmd'
+let g:netrw_dirhist_8='/Users/beverlyguillermo/Desktop/t/mysql-5.5.9/CMakeFiles'

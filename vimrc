@@ -27,7 +27,7 @@ if has('gui_running')
   "MacOS font
   "set guifont=monaco:h10
   "Windows Font
-  "set guifont=menlo:h12
+  set guifont=menlo:h12
   "ttf-inconsolata
   "set guifont=Inconsolata\ 10
   "xfonts-jmk
@@ -35,7 +35,7 @@ if has('gui_running')
   "  $ sudo fc-cache -f -v
   "set guifont=Neep\ 18
   "ttf-bitstream-vera
-  set guifont=Bitstream\ Vera\ Sans\ Mono\ 8
+  "set guifont=Bitstream\ Vera\ Sans\ Mono\ 8
 
   " Set up the gui cursor to look nice
   set guicursor=n-v-c:block-Cursor-blinkon0
@@ -100,7 +100,7 @@ if has('gui_running')
 "colorscheme jammy
 "colorscheme earendel
 "let g:solarized_termcolors=256
-set background=dark
+set background=light
 colorscheme solarized
 endif
 
@@ -126,6 +126,11 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
+
+"autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
+"autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
+autocmd FileType html,php,erb let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,php,erb source ~/.vim/plugin/closetag.vim
 
 " Cleaner IDE functionality
 " http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
