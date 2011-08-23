@@ -27,7 +27,7 @@ if has('gui_running')
   "MacOS font
   "set guifont=monaco:h10
   "Windows Font
-  "set guifont=menlo:h12
+  set guifont=menlo:h11
   "ttf-inconsolata
   "set guifont=Inconsolata\ 10
   "xfonts-jmk
@@ -35,7 +35,7 @@ if has('gui_running')
   "  $ sudo fc-cache -f -v
   "set guifont=Neep\ 18
   "ttf-bitstream-vera
-  set guifont=Bitstream\ Vera\ Sans\ Mono\ 8
+  "set guifont=Bitstream\ Vera\ Sans\ Mono\ 8
 
   " Set up the gui cursor to look nice
   set guicursor=n-v-c:block-Cursor-blinkon0
@@ -100,7 +100,7 @@ if has('gui_running')
 "colorscheme jammy
 "colorscheme earendel
 "let g:solarized_termcolors=256
-set background=dark
+set background=light
 colorscheme solarized
 endif
 
@@ -127,6 +127,9 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 
+autocmd FileType html,htmldjango,jinjahtml,php,eruby,mako let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,php,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
+
 " Cleaner IDE functionality
 " http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
 set completeopt=longest,menuone " improve completion
@@ -135,8 +138,14 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' : \ '<C-n><C-r>=pumvisible() ? "\<l
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " Remove trailing white space
-autocmd BufRead * silent! %s/[\r \t]\+$//
-autocmd BufEnter *.php :%s/[ \t\r]\+$//e
+"autocmd BufRead * silent! %s/[\r \t]\+$//
+"autocmd BufEnter *.php :%s/[ \t\r]\+$//e
+augroup filetypedetect 
+  au BufNewFile,BufRead *.php set filetype=php.html
+  au BufNewFile,BufRead *.html.erb set filetype=html.ruby
+  au BufNewFile,BufRead *.js.erb set filetype=javascript.ruby
+  au BufNewFile,BufRead *.r.erb set filetype=r.ruby
+augroup end 
 
 " Show trailing white space
 set list
@@ -249,6 +258,13 @@ nmap <silent> <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name")
 nnoremap <c-e> ,
 vnoremap <c-e> ,
 
+nmap <silent> ,co <C-_>
+
 nmap <silent> ,tidy :! tidy -xml -utf8 -mi %:p<CR>:e<CR>
+
 nmap <silent> ,p :NERDTreeToggle<CR>
+
 nmap <silent> ,t <Leader>t
+
+let g:tagbar_usearrows = 1
+nmap <silent> ,tb :TagbarToggle<CR>
