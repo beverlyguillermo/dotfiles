@@ -34,6 +34,9 @@
 [submodule ".vim/bundle/vim-railscasts-theme"]
 	path = .vim/bundle/vim-railscasts-theme
 	url = git://github.com/jpo/vim-railscasts-theme.git
-[submodule "vim-bundles/snipmate-snippets.git"]
-	path = vim-bundles/snipmate-snippets.git
-	url = git://github.com/scrooloose/snipmate-snippets.git
+[submodule ".vim/bundle/snipmate"]
+	path = .vim/bundle/snipmate
+	url = git://github.com/beverlyguillermo/snipmate.vim.git
+[submodule "vim-bundles/snipmate-snippets"]
+	path = vim-bundles/snipmate-snippets
+	url = git://github.com/beverlyguillermo/snipmate-snippets.git

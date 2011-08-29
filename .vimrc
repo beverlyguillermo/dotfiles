@@ -143,9 +143,9 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumv
 "autocmd BufEnter *.php :%s/[ \t\r]\+$//e
 augroup filetypedetect 
   au BufNewFile,BufRead *.php set filetype=php.html
-  au BufNewFile,BufRead *.html.erb set filetype=html.ruby
-  au BufNewFile,BufRead *.js.erb set filetype=javascript.ruby
-  au BufNewFile,BufRead *.r.erb set filetype=r.ruby
+  au BufNewFile,BufRead *.html.erb set filetype=html.eruby.ruby
+  au BufNewFile,BufRead *.js.erb set filetype=javascript.eruby.ruby
+  au BufNewFile,BufRead *.r.erb set filetype=r.eruby.ruby
 augroup end 
 
 " Show trailing white space
@@ -259,7 +259,7 @@ nmap <silent> <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name")
 nnoremap <c-e> ,
 vnoremap <c-e> ,
 
-" Close HTML5/XML Tags, delimitMate
+" Close HTML5/XML Tags, closetag
 nmap <silent> ,co <C-_>
 
 " Clean up html
