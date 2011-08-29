@@ -22,9 +22,18 @@
 [submodule ".vim/bundle/tagbar"]
 	path = .vim/bundle/tagbar
 	url = git://github.com/majutsushi/tagbar.git
-[submodule ".vim/bundle/a.vim"]
-	path = .vim/bundle/a.vim
-	url = git://github.com/clvv/a.vim.git
 [submodule ".vim/bundle/html5"]
 	path = .vim/bundle/html5
 	url = git://github.com/othree/html5.vim.git
+[submodule ".vim/bundle/vim-rails"]
+	path = .vim/bundle/vim-rails
+	url = git://github.com/tpope/vim-rails.git
+[submodule ".vim/bundle/vim-ruby-debugger"]
+	path = .vim/bundle/vim-ruby-debugger
+	url = git://github.com/astashov/vim-ruby-debugger.git
+[submodule ".vim/bundle/vim-ruby"]
+	path = .vim/bundle/vim-ruby
+	url = git://github.com/vim-ruby/vim-ruby.git
+[submodule ".vim/bundle/vim-railscasts-theme"]
+	path = .vim/bundle/vim-railscasts-theme
+	url = git://github.com/jpo/vim-railscasts-theme.git

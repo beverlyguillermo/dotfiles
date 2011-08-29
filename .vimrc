@@ -100,8 +100,9 @@ if has('gui_running')
 "colorscheme jammy
 "colorscheme earendel
 "let g:solarized_termcolors=256
-set background=light
+set background=dark
 colorscheme solarized
+"colorscheme railscasts
 endif
 
 filetype plugin on
@@ -258,13 +259,20 @@ nmap <silent> <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name")
 nnoremap <c-e> ,
 vnoremap <c-e> ,
 
+" Close HTML5/XML Tags, delimitMate
 nmap <silent> ,co <C-_>
 
+" Clean up html
 nmap <silent> ,tidy :! tidy -xml -utf8 -mi %:p<CR>:e<CR>
 
 nmap <silent> ,p :NERDTreeToggle<CR>
 
+" Search for particular file, Command-T
 nmap <silent> ,t <Leader>t
 
 let g:tagbar_usearrows = 1
 nmap <silent> ,tb :TagbarToggle<CR>
+
+" NerdCommentator
+nmap <silent> ,cc <Leader>cc<CR>
+nmap <silent> ,c<space> <Leader>c<space><CR>
