@@ -2,7 +2,7 @@
 color = 
 
 [trusted]
-#users = 502
+users = 502
 
 [ui]
 editor = vim
@@ -24,3 +24,6 @@ diff.deleted = red
 diff.inserted = green
 diff.changed = white
 diff.trailingwhitespace = bold red_background
+
+[extensions]
+prompt = ~/Sites/dotfiles/hg-prompt/prompt.py
