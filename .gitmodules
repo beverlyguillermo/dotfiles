@@ -40,3 +40,6 @@
 [submodule "vim-bundles/snipmate-snippets"]
 	path = vim-bundles/snipmate-snippets
 	url = git@github.com:beverlyguillermo/snipmate-snippets.git
+[submodule "oh-my-zsh"]
+	path = oh-my-zsh
+	url = git@github.com:beverlyguillermo/oh-my-zsh.git
