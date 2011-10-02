@@ -27,7 +27,7 @@ if has('gui_running')
   "MacOS font
   "set guifont=monaco:h10
   "Windows Font
-  set guifont=menlo:h12
+  set guifont=menlo:h11
   "ttf-inconsolata
   "set guifont=Inconsolata\ 10
   "xfonts-jmk
@@ -100,13 +100,15 @@ if has('gui_running')
 "colorscheme jammy
 "colorscheme earendel
 "let g:solarized_termcolors=256
-set background=light
+set background=dark
 colorscheme solarized
+"colorscheme railscasts
 endif
 
 filetype plugin on
 filetype indent on
 filetype on
+au BufNewFile,BufRead  *.php set filetype=php.html
 
 " taglist.vim plugin
 " let Tlist_Process_File_Always = 1
@@ -127,10 +129,8 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 
-"autocmd FileType html,htmldjango,jinjahtml,eruby,mako let b:closetag_html_style=1
-"autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
-autocmd FileType html,php,erb let b:closetag_html_style=1
-autocmd FileType html,xhtml,xml,php,erb source ~/.vim/plugin/closetag.vim
+autocmd FileType html,htmldjango,jinjahtml,php,eruby,mako let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,php,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
 
 " Cleaner IDE functionality
 " http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
@@ -140,8 +140,14 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' : \ '<C-n><C-r>=pumvisible() ? "\<l
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " Remove trailing white space
-autocmd BufRead * silent! %s/[\r \t]\+$//
-autocmd BufEnter *.php :%s/[ \t\r]\+$//e
+"autocmd BufRead * silent! %s/[\r \t]\+$//
+"autocmd BufEnter *.php :%s/[ \t\r]\+$//e
+augroup filetypedetect 
+  au BufNewFile,BufRead *.php set filetype=php.html
+  au BufNewFile,BufRead *.html.erb set filetype=html.eruby.ruby
+  au BufNewFile,BufRead *.js.erb set filetype=javascript.eruby.ruby
+  au BufNewFile,BufRead *.r.erb set filetype=r.eruby.ruby
+augroup end 
 
 " Show trailing white space
 set list
@@ -254,6 +260,20 @@ nmap <silent> <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name")
 nnoremap <c-e> ,
 vnoremap <c-e> ,
 
+" Close HTML5/XML Tags, closetag
+nmap <silent> ,co <C-_>
+
+" Clean up html
 nmap <silent> ,tidy :! tidy -xml -utf8 -mi %:p<CR>:e<CR>
+
 nmap <silent> ,p :NERDTreeToggle<CR>
+
+" Search for particular file, Command-T
 nmap <silent> ,t <Leader>t
+
+let g:tagbar_usearrows = 1
+nmap <silent> ,tb :TagbarToggle<CR>
+
+" NerdCommentator
+nmap <silent> ,cc <Leader>cc<CR>
+nmap <silent> ,c<space> <Leader>c<space><CR>
