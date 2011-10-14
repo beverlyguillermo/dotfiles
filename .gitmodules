@@ -43,3 +43,12 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = git@github.com:beverlyguillermo/oh-my-zsh.git
+[submodule ".vim/bundle/vim-less"]
+	path = .vim/bundle/vim-less
+	url = https://github.com/groenewege/vim-less.git
+[submodule ".vim/bundle/vim-bundler"]
+	path = .vim/bundle/vim-bundler
+	url = git://github.com/tpope/vim-bundler.git
+[submodule ".vim/bundle/vim-rake"]
+	path = .vim/bundle/vim-rake
+	url = git://github.com/tpope/vim-rake.git

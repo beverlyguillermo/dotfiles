@@ -4,20 +4,21 @@ call pathogen#infect()
 
 " Vim configs
 syntax on
+set nocompatible
+set hidden
 set number
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-set linespace=1 " line height
 set expandtab
-set showmatch
+set smarttab
+set smartindent
 set autoindent
+set linespace=1 " line height
+set showmatch
 set autowrite  " write the old file out when switching between files
 " switch between buffers without saving, so the must save first
 " error doesn't appear
-set hidden
-set smartindent
-set nocompatible
 
 "set the gui options the way I like
 "set guioptions=ac
@@ -46,10 +47,25 @@ if has('gui_running')
   set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
   set cursorline
 
-" Set cursor line
-nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+  " Set cursor line
+  nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+
+  "colorscheme tir_black
+  "colorscheme wuye
+  "colorscheme twilight
+  "colorscheme Jellybeans
+  "colorscheme Darkspectrum
+  "colorscheme Moria
+  "colorscheme Lucius
+  "colorscheme jammy
+  "colorscheme earendel
+  "let g:solarized_termcolors=256
+  set background=dark
+  colorscheme solarized
+  "colorscheme railscasts
 
 endif
+
 
 set noerrorbells "remove the beeping
 set visualbell " remove the beeping
@@ -61,14 +77,14 @@ set incsearch  " incremental search
 set hlsearch " highlight search
 " When the page starts to scroll, keep the cursor 8 lines from the top and 8
 " lines from the bottom
-set scrolloff=8
+set scrolloff=4
 " set wrapscan " wrap scans
 " set ignorecase " ignore case in search
 " set smartcase
 set virtualedit=all
 "set foldenable
+"set foldclose=all
 set foldmethod=marker
-" set foldclose=all
 set nomodeline
 set nowrap
 set noea " keep buffers the same size when buffers are closed
@@ -89,38 +105,13 @@ set virtualedit=all
 vnoremap < <gv
 vnoremap > >gv
 
-if has('gui_running')
-"colorscheme tir_black
-"colorscheme wuye
-"colorscheme twilight
-"colorscheme Jellybeans
-"colorscheme Darkspectrum
-"colorscheme Moria
-"colorscheme Lucius
-"colorscheme jammy
-"colorscheme earendel
-"let g:solarized_termcolors=256
-set background=dark
-colorscheme solarized
-"colorscheme railscasts
-endif
-
+filetype on
 filetype plugin on
 filetype indent on
-filetype on
 au BufNewFile,BufRead  *.php set filetype=php.html
 
-" taglist.vim plugin
-" let Tlist_Process_File_Always = 1
-" let Tlist_File_Fold_Auto_Close = 1
-" let Tlist_Enable_Fold_Column = 1
-" let Tlist_Use_Right_Window = 1
-" let Tlist_Sort_Type = "name"
-" let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-" let Tlist_Show_One_File = 1
-" nnoremap <silent> <Space>t :TlistToggle<CR>
-
 " Omnicomplete code complete
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -131,6 +122,10 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 
 autocmd FileType html,htmldjango,jinjahtml,php,eruby,mako let b:closetag_html_style=1
 autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,php,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
+
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
 " Cleaner IDE functionality
 " http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
@@ -160,9 +155,9 @@ set laststatus=2
 set statusline=%-(%F%m%r%h%w%)\ %{&ff}/%Y/%{&encoding}\ %=%(@\%03.3b\ %Ll\ %l,%v\ (%p%%)%)
 
 " Err, backup files locations
-"set backup
-"set backupdir=$HOME/.vim/backup
-"set directory=$HOME/.vim/temp
+set backup
+set backupdir=/tmp
+set directory=/tmp
 
 " Autocompletion for commands
 set wildmenu
@@ -242,7 +237,7 @@ nmap <silent> ,n :set invhls<CR>:set hls?<CR>
 
 " put the vim directives for my file editing settings in
 nmap <silent> ,vi
-     \ ovim:set ts=4 sts=4 sw=4:<CR>vim600:fdm=marker fdl=1 fdc=0:<ESC>
+     \ ovim:set ts=2 sts=2 sw=2:<CR>vim600:fdm=marker fdl=1 fdc=0:<ESC>
 
 " Show all available VIM servers
 nmap <silent> ,ss :echo serverlist()<CR>
