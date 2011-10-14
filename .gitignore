@@ -5,4 +5,5 @@
 *.o
 *.so
 *.swp
+*/*.pyc
 *.log
