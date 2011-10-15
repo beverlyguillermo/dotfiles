@@ -2,23 +2,94 @@
 autocmd! bufwritepost .vimrc source %
 call pathogen#infect()
 
-" Vim configs
+" Always put status line at the 2nd to last line
+set laststatus=2
+" Modifying status line look
+set statusline=%-(%F%m%r%h%w%)\ %{&ff}/%Y/%{&encoding}\ %=%(@\%03.3b\ %Ll\ %l,%v\ (%p%%)%)
+" show how many lines are highlighted in visual mode
+set showcmd
+" show the line and column number of the cursor position
+set ruler
+
+" Err, backup files locations
+set backup
+set backupdir=/tmp
+set directory=/tmp
+
 syntax on
+" use the bells and whistles of vim
 set nocompatible
+" allow switching between changed buffers that haven't been saved yet
 set hidden
+" show the line numbers
 set number
+" tabs
 set tabstop=2
+" backspace for converted tab
 set softtabstop=2
+" amount of block indenting
 set shiftwidth=2
+" convert tabs into spaces
 set expandtab
+" uses the shiftwidth instead of tabstop
 set smarttab
+" auto indenting when starting a new line
 set smartindent
+" copy indent from current line to new line
 set autoindent
-set linespace=1 " line height
+" line height
+set linespace=2
+" briefly jump to matching closing/opening bracket
 set showmatch
-set autowrite  " write the old file out when switching between files
 " switch between buffers without saving, so the must save first
 " error doesn't appear
+" write the old file out when switching between files
+set autowrite
+
+"remove the beeping
+set noerrorbells
+set visualbell
+set vb t_vb=
+
+set nohls
+" incremental search
+set incsearch
+" highlight search
+set hlsearch
+
+" When the page starts to scroll, keep the cursor # lines from the top and #
+" lines from the bottom
+set scrolloff=4
+" set wrapscan " wrap scans
+" set ignorecase " ignore case in search
+" set smartcase
+" allow the cursor to be where there isn't an actual character
+set virtualedit=all
+" folder methods
+"set foldenable
+"set foldclose=all
+set foldmethod=marker
+" gives the number of lines checked for set commands
+set nomodeline
+" don't wrap lines in the buffer window
+set nowrap
+" keep buffers the same size when buffers are closed
+set noea
+"set equalalways " i.e. make buffers equal all the time
+"set ff=unix
+"set timeoutlen=500
+"set textwidth=79
+"set formatoptions=qrn1
+
+" Autocompletion for commands
+set wildmenu
+set wildmode=list:longest,full
+set lazyredraw
+set backspace=2
+
+" Show trailing white space
+set list
+set listchars=tab:>-,trail:-
 
 "set the gui options the way I like
 "set guioptions=ac
@@ -66,44 +137,8 @@ if has('gui_running')
 
 endif
 
-
-set noerrorbells "remove the beeping
-set visualbell " remove the beeping
-set vb t_vb= " remove the beeping
-set showcmd
-set ruler
-set nohls
-set incsearch  " incremental search
-set hlsearch " highlight search
-" When the page starts to scroll, keep the cursor 8 lines from the top and 8
-" lines from the bottom
-set scrolloff=4
-" set wrapscan " wrap scans
-" set ignorecase " ignore case in search
-" set smartcase
-set virtualedit=all
-"set foldenable
-"set foldclose=all
-set foldmethod=marker
-set nomodeline
-set nowrap
-set noea " keep buffers the same size when buffers are closed
-"set equalalways " i.e. make buffers equal all the time
-set ff=unix
-"set timeoutlen=500
-"set textwidth=79
-"set formatoptions=qrn1
-
-" Allow the cursor to go in to "invalid" places
-set virtualedit=all
-
 " These things start comment lines
 " set comments=sl:/*,mb:\ *,ex:\ */,O://,b:#,:%,:XCOMM,n:>,fb:-
-
-" Pressing Shift-< or Shift-> will let you indent/unident selected lines,
-" allow it to occur multiple times in visual mode
-vnoremap < <gv
-vnoremap > >gv
 
 filetype on
 filetype plugin on
@@ -144,28 +179,6 @@ augroup filetypedetect
   au BufNewFile,BufRead *.r.erb set filetype=r.eruby.ruby
 augroup end 
 
-" Show trailing white space
-set list
-set listchars=tab:>-,trail:-
-
-" Always put status line at the 2nd to last line
-set laststatus=2
-
-" Modifying status line look
-set statusline=%-(%F%m%r%h%w%)\ %{&ff}/%Y/%{&encoding}\ %=%(@\%03.3b\ %Ll\ %l,%v\ (%p%%)%)
-
-" Err, backup files locations
-set backup
-set backupdir=/tmp
-set directory=/tmp
-
-" Autocompletion for commands
-set wildmenu
-set wildmode=list:longest,full
-set ruler
-set lazyredraw
-set backspace=2
-
 " Pressing i to insert and ii to escape
 imap ii <Esc>
 
@@ -195,6 +208,11 @@ noremap <silent> <C-7> <C-W>>
 noremap <silent> <C-8> <C-W>+
 noremap <silent> <C-9> <C-W>+
 noremap <silent> <C-0> <C-W>>
+
+" Pressing Shift-< or Shift-> will let you indent/unident selected lines,
+" allow it to occur multiple times in visual mode
+vnoremap < <gv
+vnoremap > >gv
 
 " Buffer commands
 noremap <silent> ,bd :bd<CR>
