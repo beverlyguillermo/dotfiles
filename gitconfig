@@ -14,7 +14,7 @@
   ui = auto
 
 [core]
-  excludesfile = ~/.gitignore
+	excludesfile = /Users/beverlyguillermo/.gitignore_global
   editor = vim -f
   filemode = false
 
