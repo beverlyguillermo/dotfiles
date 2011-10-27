@@ -1,0 +1,8 @@
+.vim/backup
+.vim/temp
+.vim/.netrwhist
+*.o
+*.so
+*.swp
+*/*.pyc
+*.log
