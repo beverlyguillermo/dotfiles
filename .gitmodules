@@ -52,3 +52,6 @@
 [submodule ".vim/bundle/vim-rake"]
 	path = .vim/bundle/vim-rake
 	url = git://github.com/tpope/vim-rake.git
+[submodule "rbenv"]
+	path = rbenv
+	url = https://github.com/sstephenson/rbenv.git
