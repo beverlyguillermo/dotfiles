@@ -1,3 +1,9 @@
 vimrc      = my default
 vimrc-tiny = no frills?
 vim-old    = original confusion
+
+
+== Default Gems
+gem-ctags
+gem-browse
+bundler
