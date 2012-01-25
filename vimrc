@@ -9,7 +9,7 @@ set statusline=%-(%F%m%r%h%w%)\ %{&ff}/%Y/%{&encoding}\ %=%(@\%03.3b\ %Ll\ %l,%v
 " show how many lines are highlighted in visual mode
 set showcmd
 " show the line and column number of the cursor position
-set ruler
+" set ruler
 
 " Err, backup files locations
 set backup
@@ -30,7 +30,7 @@ set softtabstop=2
 " amount of block indenting
 set shiftwidth=2
 " convert tabs into spaces
-set expandtab
+" set expandtab
 " uses the shiftwidth instead of tabstop
 set smarttab
 " auto indenting when starting a new line
@@ -59,7 +59,7 @@ set hlsearch
 
 " When the page starts to scroll, keep the cursor # lines from the top and #
 " lines from the bottom
-set scrolloff=4
+" set scrolloff=4
 " set wrapscan " wrap scans
 " set ignorecase " ignore case in search
 " set smartcase
@@ -76,7 +76,7 @@ set nowrap
 " keep buffers the same size when buffers are closed
 set noea
 "set equalalways " i.e. make buffers equal all the time
-"set ff=unix
+set ff=unix
 "set timeoutlen=500
 "set textwidth=79
 "set formatoptions=qrn1
@@ -89,7 +89,9 @@ set backspace=2
 
 " Show trailing white space
 set list
-set listchars=tab:>-,trail:-
+" set listchars=tab:\xbb\xb7,trail:\xb7
+" set listchars=tab:>-,trail:-
+set list listchars=tab:»·,trail:·
 
 "set the gui options the way I like
 "set guioptions=ac
@@ -144,7 +146,6 @@ endif
 filetype on
 filetype plugin on
 filetype indent on
-au BufNewFile,BufRead  *.php set filetype=php.html
 
 " Omnicomplete code complete
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
@@ -178,7 +179,7 @@ augroup filetypedetect
   au BufNewFile,BufRead *.html.erb set filetype=html.eruby.ruby
   au BufNewFile,BufRead *.js.erb set filetype=javascript.eruby.ruby
   au BufNewFile,BufRead *.r.erb set filetype=r.eruby.ruby
-augroup end 
+augroup end
 
 " Pressing i to insert and ii to escape
 imap ii <Esc>
@@ -204,8 +205,8 @@ noremap <silent> ,cl :wincmd l<CR>:close<CR>
 noremap <silent> ,cc :close<CR>
 noremap <silent> ,cw :cclose<CR>
 noremap <silent> ,bd :bd<CR>
-noremap <silent> z[ :tabp<CR>
-noremap <silent> z] :tabn<CR>
+noremap <silent> zh :tabp<CR>
+noremap <silent> zl :tabn<CR>
 noremap <silent> ,ml <C-W>L
 noremap <silent> ,mk <C-W>K
 noremap <silent> ,mh <C-W>H
