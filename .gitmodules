@@ -58,3 +58,6 @@
 [submodule ".vim/bundle/obsidian2/colors"]
 	path = .vim/bundle/obsidian2/colors
 	url = https://github.com/abra/obsidian2.git
+[submodule "tmux-mem-cpu-load"]
+	path = tmux-mem-cpu-load
+	url = https://github.com/ornicar/tmux-mem-cpu-load.git
