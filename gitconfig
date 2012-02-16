@@ -1,31 +1,32 @@
 [diff]
-  tool = araxis
+	prompt = false
+	tool = vimdiff
 
 [difftool "araxis"]
-  path = /usr/local/bin/compare
+	path = /usr/local/bin/compare
 
 [merge]
-  tool = araxis
+	tool = araxis
 
 [mergetool "araxis"]
-  path = /usr/local/bin/compare
+	path = /usr/local/bin/compare
 
 [color]
-  ui = auto
+	ui = auto
 
 [core]
 	excludesfile = /Users/beverlyguillermo/.gitignore_global
-  editor = vim -f
-  filemode = false
+	editor = vim -f
+	filemode = false
 
 [svn]
-  rmdir = true
+	rmdir = true
 
 [user]
-  name = Beverly Guillermo
-  email = beverly.guillermo@gmail.com
+	name = Beverly Guillermo
+	email = beverly.guillermo@gmail.com
 [apply]
-  whitespace = nowarn
+	whitespace = nowarn
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"

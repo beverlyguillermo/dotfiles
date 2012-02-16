@@ -246,3 +246,36 @@ nmap <silent> ,c<space> <Leader>c<space><CR>
 " Enable file type detection including plugins and indent
 filetype plugin indent on
 
+" Omnicomplete code complete
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType c set omnifunc=ccomplete#Complete
+
+autocmd FileType html,htmldjango,jinjahtml,php,eruby,mako let b:closetag_html_style=1
+autocmd FileType html,xhtml,xml,htmldjango,jinjahtml,php,eruby,mako source ~/.vim/bundle/closetag/plugin/closetag.vim
+
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+
+" Cleaner IDE functionality
+" http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
+set completeopt=longest,menuone " improve completion
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' : \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+" Remove trailing white space
+"autocmd BufRead * silent! %s/[\r \t]\+$//
+"autocmd BufEnter *.php :%s/[ \t\r]\+$//e
+augroup filetypedetect 
+  au BufNewFile,BufRead *.php set filetype=php.html
+  au BufNewFile,BufRead *.html.erb set filetype=html.eruby.ruby
+  au BufNewFile,BufRead *.js.erb set filetype=javascript.eruby.ruby
+  au BufNewFile,BufRead *.r.erb set filetype=r.eruby.ruby
+augroup end
