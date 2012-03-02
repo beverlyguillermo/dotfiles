@@ -112,3 +112,6 @@
 [submodule "vim/bundle/obsidian2/colors"]
 	path = vim/bundle/obsidian2/colors
 	url = https://github.com/abra/obsidian2.git
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git

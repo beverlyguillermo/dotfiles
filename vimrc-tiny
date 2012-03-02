@@ -22,6 +22,9 @@ set directory=/tmp
 " Allow syntax highlighting
 syntax on
 
+hi CursorLine term=underline cterm=underline gui=underline
+set cursorline
+
 "set the gui options the way I like
 "set guioptions=ac
 if has('gui_running')
@@ -47,7 +50,6 @@ if has('gui_running')
   set guicursor+=i-ci:ver25-Cursor
   set guicursor+=r-cr:hor20-Cursor
   set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
-  set cursorline
 
   " Set cursor line
   nnoremap ,c :set cursorline! cursorcolumn!<CR>
@@ -71,7 +73,7 @@ if has('gui_running')
 endif
 
 " Show trailing white space
-set list
+" set list
 " set listchars=tab:\xbb\xb7,trail:\xb7
 " set listchars=tab:>-,trail:-
 set listchars=tab:»·,trail:·

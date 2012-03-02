@@ -92,6 +92,7 @@ set list
 " set listchars=tab:\xbb\xb7,trail:\xb7
 " set listchars=tab:>-,trail:-
 set list listchars=tab:»·,trail:·
+set cursorline
 
 "set the gui options the way I like
 "set guioptions=ac
@@ -118,7 +119,6 @@ if has('gui_running')
   set guicursor+=i-ci:ver25-Cursor
   set guicursor+=r-cr:hor20-Cursor
   set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
-  set cursorline
 
   " Set cursor line
   nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>

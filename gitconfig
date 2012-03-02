@@ -1,6 +1,5 @@
 [diff]
 	prompt = false
-	tool = vimdiff
 
 [difftool "araxis"]
 	path = /usr/local/bin/compare
