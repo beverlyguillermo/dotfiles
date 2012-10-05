@@ -2,6 +2,8 @@
 autocmd! bufwritepost .vimrc source %
 call pathogen#infect()
 
+set t_Co=256
+
 " Always put status line at the 2nd to last line
 set laststatus=2
 " Modifying status line look
