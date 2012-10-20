@@ -1,7 +1,9 @@
 .DS_Store
-.vim/backup
-.vim/temp
-.vim/.netrwhist
+vim/backup
+vim/temp
+vim/.netrwhist
+vim/tmp
+vim/tmp/.*~
 *.o
 *.so
 *.swp
