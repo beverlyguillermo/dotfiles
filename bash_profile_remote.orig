@@ -1,6 +1,6 @@
 function parse_hg_branch {
 # ☿
-  local hg_status=`hg status`
+local hg_status=`hg status`
 }
 
 function parse_git_branch {
@@ -16,14 +16,13 @@ function parse_git_branch {
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 export LS_COLORS='di=1;36:fi=0:ln=4;34:pi=5:so=4;5:bd=5:cd=5:or=4;91:mi=4;92:ex=35:*.rb=90'
+export EDITOR='vim'
 
-[[ -s "/Users/beverlyguillermo/.rvm/scripts/rvm" ]] && source "/Users/beverlyguillermo/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
-export PATH=/usr/local/bin:/opt/local/bin:/opt/local/sbin:$PATH
-
-export PS1="\[\033[0;35m\]\u\[\033[0;37m\] at \[\033[0;33m\]\h\[\033[0;37m\]:\[\033[0;34m\]\$(date +%H:%M)\[\033[0;37m\] in \[\033[0;32m\]\w\[\033[0;34m\] \$(parse_git_branch) \n\[\033[0;37m\]$\[\033[0m\] "
-#export PS1="\[\033[0;44m\]\u\[\033[0;37m\] at \[\033[0;33m\]\h\[\033[0;37m\] \[\033[0;37m\]in \[\033[0;32m\]\w\[\033[0;34m\] \$(parse_git_branch) \n\[\033[0;37m\]$\[\033[0m\] "
-#
+#export PS1="\[\033[0;35m\]\u \[\033[0;37m\]at \[\033[0;33m\]\h\[\033[0;37m\]:\[\033[0;34m\]\$(date +%H:%M)\[\033[0;37m\] in \[\033[0;32m\]\w\[\033[0;34m\] \$(parse_git_branch) \n\[\033[0;37m\]$\[\033[0m\] "
+#export PS1="\[\033[0;44m\]\u at \h\[\033[0;37m\] \[\033[0;37m\]in \[\033[0;32m\]\w\[\033[0;34m\] \$(parse_git_branch) \n\[\033[0;37m\]$\[\033[0m\] "
+export PS1="\[\033[0;45m\]\u at \h\[\033[0;37m\] \[\033[0;37m\]in \[\033[0;32m\]\w\[\033[0;34m\] \$(parse_git_branch) \n\[\033[0;37m\]$\[\033[0m\] "
 
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
   export TERM='xterm-256color'
@@ -39,7 +38,7 @@ fi
 
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
-umask 002
+#umask 022
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -54,3 +53,10 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+<<<<<<< Updated upstream
+# Colors
+export TERM="xterm-256color"
+alias  tmux="tmux -2"
+=======
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+>>>>>>> Stashed changes

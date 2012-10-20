@@ -30,7 +30,7 @@ set softtabstop=2
 " amount of block indenting
 set shiftwidth=2
 " convert tabs into spaces
-" set expandtab
+set expandtab
 " uses the shiftwidth instead of tabstop
 set smarttab
 " auto indenting when starting a new line
@@ -167,9 +167,9 @@ autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 " Cleaner IDE functionality
 " http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
 set completeopt=longest,menuone " improve completion
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' : \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+" inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr> <C-n> pumvisible() ? '<C-n>' : \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+" inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " Remove trailing white space
 "autocmd BufRead * silent! %s/[\r \t]\+$//

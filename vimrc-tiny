@@ -24,6 +24,7 @@ syntax on
 
 hi CursorLine term=underline cterm=underline gui=underline
 set cursorline
+" set cursorcolumn
 
 "set the gui options the way I like
 "set guioptions=ac
@@ -73,7 +74,7 @@ if has('gui_running')
 endif
 
 " Show trailing white space
-" set list
+set list
 " set listchars=tab:\xbb\xb7,trail:\xb7
 " set listchars=tab:>-,trail:-
 set listchars=tab:»·,trail:·
@@ -102,7 +103,7 @@ set softtabstop=2
 set shiftwidth=2
 
 " convert tabs into spaces
-" set expandtab
+set expandtab
 
 " uses the shiftwidth instead of tabstop
 set smarttab

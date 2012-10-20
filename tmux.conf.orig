@@ -16,9 +16,11 @@ bind-key F12 set-option -g prefix `
 set -g base-index 1
 set -g default-terminal "screen-256color"
 
+<<<<<<< Updated upstream
+=======
 #set-option -g default-terminal "screen-256color"
 #set-option -g mouse-mode on
-
+>>>>>>> Stashed changes
 set-option -g mouse-select-pane on
 set-option -g status-keys vi
 set-option -g bell-action any
