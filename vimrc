@@ -292,7 +292,7 @@ nmap <silent> ,tidy :! tidy -xml -utf8 -mi %:p<CR>:e<CR>
 nmap <silent> ,p :NERDTreeToggle<CR>
 
 " Search for particular file, CtrlP
-nmap <silent> ,t :CtrlP
+nmap <silent> ,t :CtrlP<CR>
 
 let g:tagbar_usearrows = 1
 nmap <silent> ,tb :TagbarToggle<CR>
