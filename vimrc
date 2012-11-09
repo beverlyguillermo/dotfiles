@@ -92,12 +92,13 @@ set list
 " set listchars=tab:\xbb\xb7,trail:\xb7
 " set listchars=tab:>-,trail:-
 set list listchars=tab:»·,trail:·
-set cursorline
+set cursorline cursorcolumn
 
 "set the gui options the way I like
 "set guioptions=ac
 if has('gui_running')
 
+  set cursorcolumn!
   set guioptions-=T " hide toolbar in gui mode
   "MacOS font
   "set guifont=monaco:h10
@@ -119,9 +120,6 @@ if has('gui_running')
   set guicursor+=i-ci:ver25-Cursor
   set guicursor+=r-cr:hor20-Cursor
   set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
-
-  " Set cursor line
-  nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
   "colorscheme tir_black
   "colorscheme wuye
@@ -185,8 +183,6 @@ augroup end
 imap ii <Esc>
 
 " Maps to make handling windows a bit easier
-noremap <silent> ,nh :tabp<CR>
-noremap <silent> ,nl :tabn<CR>
 noremap <silent> ,h :wincmd h<CR>
 noremap <silent> ,h :wincmd h<CR>
 noremap <silent> ,j :wincmd j<CR>
@@ -207,6 +203,8 @@ noremap <silent> ,cw :cclose<CR>
 noremap <silent> ,bd :bd<CR>
 noremap <silent> zh :tabp<CR>
 noremap <silent> zl :tabn<CR>
+noremap <silent> zn :bn<CR>
+noremap <silent> zp :bn<CR>
 noremap <silent> ,ml <C-W>L
 noremap <silent> ,mk <C-W>K
 noremap <silent> ,mh <C-W>H
@@ -223,6 +221,11 @@ vnoremap > >gv
 
 " Buffer commands
 noremap <silent> ,bd :bd<CR>
+let g:buffergator_suppress_keymaps=1
+let g:buffergator_viewport_split_policy="B"
+let g:buffergator_split_size=10
+noremap <silent> ,b :BuffergatorToggle<CR>
+noremap <silent> ,bp :BuffergatorToggle<CR>
 
 " Make horizontal scrolling easier
 nmap <silent> <C-o> 10zl
@@ -288,8 +291,8 @@ nmap <silent> ,tidy :! tidy -xml -utf8 -mi %:p<CR>:e<CR>
 
 nmap <silent> ,p :NERDTreeToggle<CR>
 
-" Search for particular file, Command-T
-nmap <silent> ,t <Leader>t
+" Search for particular file, CtrlP
+nmap <silent> ,t :CtrlP
 
 let g:tagbar_usearrows = 1
 nmap <silent> ,tb :TagbarToggle<CR>
