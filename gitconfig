@@ -1,14 +1,10 @@
 [diff]
 	prompt = false
-
-[difftool "araxis"]
-	path = /usr/local/bin/compare
+	tool = vimdiff
 
 [merge]
-	tool = araxis
-
-[mergetool "araxis"]
-	path = /usr/local/bin/compare
+	prompt = false
+	tool = vimdiff
 
 [color]
 	ui = auto

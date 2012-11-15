@@ -28,8 +28,9 @@ set cursorline
 
 "set the gui options the way I like
 "set guioptions=ac
+set t_Co=256
+"set t_co=88
 if has('gui_running')
-
   set guioptions-=T " hide toolbar in gui mode
   "MacOS font
   "set guifont=monaco:h10
@@ -55,23 +56,23 @@ if has('gui_running')
   " Set cursor line
   nnoremap ,c :set cursorline! cursorcolumn!<CR>
 
-	" Color Schemes
-  "colorscheme tir_black
-  "colorscheme wuye
-  "colorscheme twilight
-  "colorscheme Jellybeans
-  "colorscheme Darkspectrum
-  "colorscheme Moria
-  "colorscheme Lucius
-  "colorscheme jammy
-  "colorscheme earendel
-  "let g:solarized_termcolors=256
-  "set background=dark
-  "colorscheme solarized
-  "colorscheme railscasts
-  colorscheme obsidian2
-
 endif
+
+" Color Schemes
+"colorscheme tir_black
+"colorscheme wuye
+"colorscheme twilight
+"colorscheme Jellybeans
+"colorscheme Darkspectrum
+"colorscheme Moria
+"colorscheme Lucius
+"colorscheme jammy
+"colorscheme earendel
+"let g:solarized_termcolors=256
+"set background=light
+"colorscheme solarized
+"colorscheme railscasts
+colorscheme obsidian2
 
 " Show trailing white space
 set list
@@ -138,8 +139,8 @@ nmap <silent> ,n :set invhls<CR>:set hls?<CR>
 imap ii <Esc>
 
 " Maps to make handling windows a bit easier
-noremap <silent> ,nh :tabp<CR>
-noremap <silent> ,nl :tabn<CR>
+noremap <silent> ,[ :tabp<CR>
+noremap <silent> ,] :tabn<CR>
 noremap <silent> ,h :wincmd h<CR>
 noremap <silent> ,h :wincmd h<CR>
 noremap <silent> ,j :wincmd j<CR>

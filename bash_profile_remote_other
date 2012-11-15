@@ -32,7 +32,7 @@ export PS1="\[\033[0;45m\]\u at \h\[\033[0;37m\] \[\033[0;37m\]in \[\033[0;32m\]
 
 # the default umask is set in /etc/profile; for setting the umask
 # for ssh logins, install and configure the libpam-umask package.
-#umask 022
+umask 002
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
