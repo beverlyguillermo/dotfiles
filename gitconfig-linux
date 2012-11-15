@@ -1,8 +1,8 @@
 [diff]
-  tool = meld
+  tool = vimdiff
 
 [merge]
-  tool = merge
+  tool = vimdiff
 
 [color]
     ui = auto

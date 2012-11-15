@@ -175,8 +175,8 @@ set completeopt=longest,menuone " improve completion
 augroup filetypedetect 
   au BufNewFile,BufRead *.php set filetype=php.html
   au BufNewFile,BufRead *.html.erb set filetype=html.eruby.ruby
-  au BufNewFile,BufRead *.js.erb set filetype=javascript.eruby.ruby
-  au BufNewFile,BufRead *.r.erb set filetype=r.eruby.ruby
+  "au BufNewFile,BufRead *.js.erb set filetype=javascript.eruby.ruby
+  "au BufNewFile,BufRead *.r.erb set filetype=r.eruby.ruby
 augroup end
 
 " Pressing i to insert and ii to escape
@@ -300,3 +300,4 @@ nmap <silent> ,tb :TagbarToggle<CR>
 " NerdCommentator
 nmap <silent> ,cc <Leader>cc<CR>
 nmap <silent> ,c<space> <Leader>c<space><CR>
+
