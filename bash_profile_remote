@@ -57,6 +57,10 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+if [ -d "$HOME/.node/bin" ] ; then
+    PATH="$HOME/.node/bin:$PATH"
+fi
+
 # TMUX
 alias  tmux="tmux -2"
 

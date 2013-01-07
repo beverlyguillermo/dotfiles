@@ -59,15 +59,15 @@ set hlsearch
 
 " When the page starts to scroll, keep the cursor # lines from the top and #
 " lines from the bottom
-" set scrolloff=4
+set scrolloff=4
 " set wrapscan " wrap scans
 " set ignorecase " ignore case in search
 " set smartcase
 " allow the cursor to be where there isn't an actual character
 set virtualedit=all
 " folder methods
-"set foldenable
-"set foldclose=all
+set foldenable
+set foldclose=all
 set foldmethod=marker
 " gives the number of lines checked for set commands
 set nomodeline
@@ -101,9 +101,9 @@ if has('gui_running')
   set cursorcolumn!
   set guioptions-=T " hide toolbar in gui mode
   "MacOS font
-  "set guifont=monaco:h10
+  "set guifont=monaco:h12
+  set guifont=menlo:h12
   "Windows Font
-  set guifont=menlo:h11
   "ttf-inconsolata
   "set guifont=Inconsolata\ 10
   "xfonts-jmk
@@ -134,12 +134,13 @@ if has('gui_running')
   "set background=dark
   "colorscheme solarized
   "colorscheme railscasts
-  colorscheme obsidian2
+  "colorscheme obsidian2
+  colorscheme Tomorrow-Night-Eighties
 
 endif
 
 " These things start comment lines
-" set comments=sl:/*,mb:\ *,ex:\ */,O://,b:#,:%,:XCOMM,n:>,fb:-
+set comments=sl:/*,mb:\ *,ex:\ */,O://,b:#,:%,:XCOMM,n:>,fb:-
 
 filetype on
 filetype plugin on
@@ -179,11 +180,12 @@ augroup filetypedetect
   "au BufNewFile,BufRead *.r.erb set filetype=r.eruby.ruby
 augroup end
 
+
+
 " Pressing i to insert and ii to escape
 imap ii <Esc>
 
 " Maps to make handling windows a bit easier
-noremap <silent> ,h :wincmd h<CR>
 noremap <silent> ,h :wincmd h<CR>
 noremap <silent> ,j :wincmd j<CR>
 noremap <silent> ,k :wincmd k<CR>
@@ -198,7 +200,7 @@ noremap <silent> ,cj :wincmd j<CR>:close<CR>
 noremap <silent> ,ck :wincmd k<CR>:close<CR>
 noremap <silent> ,ch :wincmd h<CR>:close<CR>
 noremap <silent> ,cl :wincmd l<CR>:close<CR>
-noremap <silent> ,cc :close<CR>
+"noremap <silent> ,cc :close<CR>
 noremap <silent> ,cw :cclose<CR>
 noremap <silent> ,bd :bd<CR>
 noremap <silent> zh :tabp<CR>
@@ -261,23 +263,23 @@ nmap <silent> ,cd :lcd %:p:h<CR>
 nmap <silent> ,md :!mkdir -p %:p:h<CR>
 
 " Turn off that stupid highlight search
-nmap <silent> ,n :set invhls<CR>:set hls?<CR>
+"nmap <silent> ,h :set invhls<CR>:set hls?<CR>
 
 " put the vim directives for my file editing settings in
 nmap <silent> ,vi
      \ ovim:set ts=2 sts=2 sw=2:<CR>vim600:fdm=marker fdl=1 fdc=0:<ESC>
 
 " Show all available VIM servers
-nmap <silent> ,ss :echo serverlist()<CR>
+"nmap <silent> ,ss :echo serverlist()<CR>
 
-" The following beast is something i didn't write... it will return the
+" The following beast is something I didn't write... it will return the
 " syntax highlighting group that the current "thing" under the cursor
 " belongs to -- very useful for figuring out what to change as far as
 " syntax highlighting goes.
-nmap <silent> <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name")
-     \ . '> trans<' . synIDattr(synID(line("."),col("."),0),"name")
-     \ . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name")
-     \ . ">"<CR>
+"nmap <silent> <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name")
+"     \ . '> trans<' . synIDattr(synID(line("."),col("."),0),"name")
+"     \ . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name")
+"     \ . ">"<CR>
 
 " Map CTRL-E to do what ',' used to do
 nnoremap <c-e> ,
@@ -299,5 +301,13 @@ nmap <silent> ,tb :TagbarToggle<CR>
 
 " NerdCommentator
 nmap <silent> ,cc <Leader>cc<CR>
-nmap <silent> ,c<space> <Leader>c<space><CR>
+nmap <silent> <CC <Leader>c<space><CR>
 
+" NERDTree
+let NERDTreeShowHidden=1
+let NERDTreeIgnore = ['\.pyc$', '\.git', '\.tags', '\.gemtags']
+
+set tags=./tags,tags,./.tags,.tags,./.gemtags,.gemtags;
+autocmd FileType ruby let &l:tags = pathogen#legacyjoin(pathogen#uniq(
+      \ pathogen#split(&tags) +
+      \ map(split($GEM_PATH,':'),'v:val."/gems/*/tags"')))
