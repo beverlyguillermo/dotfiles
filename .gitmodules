@@ -128,3 +128,6 @@
 [submodule "vim/bundle/tomorrow-night-vim"]
 	path = vim/bundle/tomorrow-night-vim
 	url = git://github.com/mnoble/tomorrow-night-vim.git
+[submodule "tomorrow-theme"]
+	path = tomorrow-theme
+	url = https://github.com/chriskempson/tomorrow-theme.git
