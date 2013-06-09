@@ -1,0 +1,23 @@
+[diff]
+	tool = mvimdiff
+
+[merge]
+  tool = vimdiff
+
+[color]
+    ui = auto
+
+[core]
+    excludesfile = ~/.gitignore
+    editor = vim
+
+[svn]
+    rmdir = true
+
+[user]
+    name = Beverly Guillermo
+    email = beverly.guillermo@gmail.com
+[apply]
+	whitespace = nowarn
+[difftool "mvimdiff"]
+	cmd = mvim -f -d \"$LOCAL\" \"$REMOTE\"
