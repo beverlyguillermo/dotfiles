@@ -71,5 +71,5 @@ alias ls="ls --color"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # tmux and rvm hack
-if [[ -f .rvmrc ]]; then cd ..; cd -; fi
+#if [[ -f .rvmrc ]]; then cd ..; cd -; fi
 
