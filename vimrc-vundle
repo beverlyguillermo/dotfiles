@@ -114,14 +114,16 @@ set list
 
 " set listchars=tab:\xbb\xb7,trail:\xb7
 " set listchars=tab:>-,trail:-
-set cursorline
+set cursorline cursorcolumn
 set list listchars=tab:»·,trail:·
 
 "set the gui options the way I like
 "set guioptions=ac
+
+colorscheme Tomorrow-Night
+
 if has('gui_running')
 
-  set cursorcolumn
   set guioptions-=T " hide toolbar in gui mode
   set guioptions-=r
   set guioptions-=L
@@ -133,8 +135,6 @@ if has('gui_running')
   set guicursor+=i-ci:ver25-Cursor
   set guicursor+=r-cr:hor20-Cursor
   set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
-
-  colorscheme Tomorrow-Night
 
   if has("gui_macvim")
     set guifont=menlo:h12
@@ -203,8 +203,8 @@ noremap <silent> ,ch :wincmd h<CR>:close<CR>
 noremap <silent> ,cl :wincmd l<CR>:close<CR>
 noremap <silent> ,cw :cclose<CR>
 noremap <silent> ,bd :bd<CR>
-noremap <silent> ,zh :tabp<CR>
-noremap <silent> ,zl :tabn<CR>
+noremap <silent> ,zp :tabp<CR>
+noremap <silent> ,zn :tabn<CR>
 noremap <silent> <C-7> <C-W>>
 noremap <silent> <C-8> <C-W>+
 noremap <silent> <C-9> <C-W>+
@@ -241,3 +241,18 @@ let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 
 nmap <silent> ,b  :BuffergatorToggle<cr>
 let g:buffergator_viewport_split_policy = 'B'
+
+nmap <silent> ,g  :IndentGuidesToggle<cr>
+let g:indent_guides_enable_on_vim_startup = 0
+let g:indent_guides_start_level = 2
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'vim']
+let g:indent_guides_auto_colors = 0
+" For vim-indent-guides plugin
+" Dark Background
+"set background=light
+hi IndentGuidesOdd  ctermbg=237
+hi IndentGuidesEven ctermbg=130
+" Light Background
+"hi IndentGuidesOdd  ctermbg=black
+"hi IndentGuidesEven ctermbg=darkgrey
+
