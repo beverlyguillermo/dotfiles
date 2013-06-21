@@ -2,7 +2,7 @@
 	tool = mvimdiff
 
 [merge]
-  tool = vimdiff
+  tool = mvimdiff
 
 [color]
     ui = auto
@@ -18,6 +18,11 @@
     name = Beverly Guillermo
     email = beverly.guillermo@gmail.com
 [apply]
-	whitespace = nowarn
+  whitespace = nowarn
+
 [difftool "mvimdiff"]
-	cmd = mvim -f -d \"$LOCAL\" \"$REMOTE\"
+  cmd = mvim -f -d \"$LOCAL\" \"$REMOTE\"
+
+[mergetool "mvimdiff"]
+  cmd = mvimdiff \"$LOCAL\" \"$REMOTE\" \"$MERGED\" \"$BASE\"
+  keepBackup = false

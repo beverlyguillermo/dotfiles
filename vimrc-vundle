@@ -16,11 +16,12 @@ Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 "Bundle 'ryan-cf/netrw'
 Bundle 'kien/ctrlp.vim'
+Bundle 'tpope/vim-repeat'
 Bundle 'ervandew/supertab'
 Bundle 'majutsushi/tagbar'
+Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-repeat'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
@@ -45,7 +46,7 @@ syntax on
 " Always put status line at the 2nd to last line
 set laststatus=2
 " Modifying status line look
-set statusline=%-(%F%m%r%h%w%)\ %{&ff}/%Y/%{&encoding}\ %=%(@\%03.3b\ %Ll\ %l,%v\ (%p%%)%)
+set statusline=%-(%F%m%r%h%w%)%{fugitive#statusline()}\ %{&ff}/%Y/%{&encoding}\ %=%(@\%03.3b\ %Ll\ %l,%v\ (%p%%)%)
 " show how many lines are highlighted in visual mode
 set showcmd
 " show the line and column number of the cursor position
@@ -233,10 +234,10 @@ nmap <silent> ,vi
 
 nmap <silent> ,p  :NERDTreeToggle<cr>
 let g:NERDTreeMapOpenSplit = 'i'
+let g:NERDTreeShowHidden = 1
 
 nmap <silent> ,tb :TagbarToggle<cr>
 let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
 
 nmap <silent> ,b  :BuffergatorToggle<cr>
 let g:buffergator_viewport_split_policy = 'B'
-
