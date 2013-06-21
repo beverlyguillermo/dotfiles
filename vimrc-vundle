@@ -235,6 +235,7 @@ nmap <silent> ,vi
 nmap <silent> ,p  :NERDTreeToggle<cr>
 let g:NERDTreeMapOpenSplit = 'i'
 let g:NERDTreeShowHidden = 1
+let g:NERDTreeIgnore     = ['.DS_Store', '.git', '*.bak']
 
 nmap <silent> ,tb :TagbarToggle<cr>
 let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
