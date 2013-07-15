@@ -176,7 +176,7 @@ augroup filetypedetect
 augroup end
 
 " Remove highlight and do escape
-nnoremap <esc> :noh<cr><esc>
+"nnoremap <esc> :noh<cr><esc>
 
 " Pressing Shift-< or Shift-> will let you indent/unident selected lines,
 " allow it to occur multiple times in visual mode
