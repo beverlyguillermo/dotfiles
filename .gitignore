@@ -2,6 +2,7 @@
 vim/backup
 vim/temp
 vim/.netrwhist
+vim/bundle
 vim/tmp
 vim/tmp/.*~
 *.o
