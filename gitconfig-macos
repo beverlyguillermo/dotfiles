@@ -5,20 +5,25 @@
   tool = mvimdiff
 
 [color]
-    ui = auto
+  ui = auto
+
+[color "diff"]
+  whitespace = blue reverse
 
 [core]
-    excludesfile = ~/.gitignore
-    editor = vim
+  excludesfile = ~/.gitignore
+  editor = vim
 
 [svn]
-    rmdir = true
+  rmdir = true
 
 [user]
-    name = Beverly Guillermo
-    email = beverly.guillermo@gmail.com
+  name = Beverly Guillermo
+  email = beverly.guillermo@gmail.com
+
 [apply]
   whitespace = nowarn
+  ignorewhitespace = true
 
 [difftool "mvimdiff"]
   cmd = mvim -f -d \"$LOCAL\" \"$REMOTE\"
@@ -26,3 +31,7 @@
 [mergetool "mvimdiff"]
   cmd = mvimdiff \"$LOCAL\" \"$REMOTE\" \"$MERGED\" \"$BASE\"
   keepBackup = false
+
+[alias]
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all

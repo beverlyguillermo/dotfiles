@@ -72,4 +72,6 @@ alias ls="ls --color"
 
 # tmux and rvm hack
 #if [[ -f .rvmrc ]]; then cd ..; cd -; fi
-
+if [ -z "$TMUX" ]; then
+  tmux attach -t bee || tmux new -s bee
+fi

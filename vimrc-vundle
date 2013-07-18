@@ -114,7 +114,8 @@ set list
 
 " set listchars=tab:\xbb\xb7,trail:\xb7
 " set listchars=tab:>-,trail:-
-set cursorline cursorcolumn
+"set cursorline cursorcolumn
+set cursorline
 set list listchars=tab:»·,trail:·
 
 "set the gui options the way I like
@@ -167,16 +168,16 @@ set completeopt=longest,menuone " improve completion
 
 " Remove trailing white space
 autocmd BufRead * silent! %s/[\r \t]\+$//
-autocmd BufEnter *.php :%s/[ \t\r]\+$//e
+autocmd BufEnter *.rb :%s/[ \t\r]\+$//e
 augroup filetypedetect
   au BufNewFile,BufRead *.php set filetype=php.html
-  au BufNewFile,BufRead *.html.erb set filetype=html.eruby.ruby
+  au BufNewFile,BufRead *.html.erb set filetype=eruby.ruby.html
   au BufNewFile,BufRead *.js set filetype=javascript
   au BufNewFile,BufRead *.coffeescript set filetype=javascript.coffeescript
 augroup end
 
 " Remove highlight and do escape
-"nnoremap <esc> :noh<cr><esc>
+"nnoremap <esc> :noh<cr>
 
 " Pressing Shift-< or Shift-> will let you indent/unident selected lines,
 " allow it to occur multiple times in visual mode
@@ -203,8 +204,6 @@ noremap <silent> ,ch :wincmd h<CR>:close<CR>
 noremap <silent> ,cl :wincmd l<CR>:close<CR>
 noremap <silent> ,cw :cclose<CR>
 noremap <silent> ,bd :bd<CR>
-noremap <silent> ,zp :tabp<CR>
-noremap <silent> ,zn :tabn<CR>
 noremap <silent> <C-7> <C-W>>
 noremap <silent> <C-8> <C-W>+
 noremap <silent> <C-9> <C-W>+
@@ -235,6 +234,7 @@ nmap <silent> ,vi
 nmap <silent> ,p  :NERDTreeToggle<cr>
 let g:NERDTreeMapOpenSplit = 'i'
 let g:NERDTreeShowHidden = 1
+let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeIgnore     = ['.DS_Store', '.git', '*.bak']
 
 nmap <silent> ,tb :TagbarToggle<cr>
@@ -246,11 +246,11 @@ let g:buffergator_viewport_split_policy = 'B'
 nmap <silent> ,g  :IndentGuidesToggle<cr>
 let g:indent_guides_enable_on_vim_startup = 0
 let g:indent_guides_start_level = 2
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'vim']
 let g:indent_guides_auto_colors = 0
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'vim']
 " For vim-indent-guides plugin
 " Dark Background
-"set background=light
+set background=dark
 hi IndentGuidesOdd  ctermbg=237
 hi IndentGuidesEven ctermbg=130
 " Light Background

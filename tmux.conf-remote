@@ -28,7 +28,7 @@ set-option -g visual-bell on
 
 set status bar
 set -g status-bg black
-set -g status-fg yellow
+set -g status-fg magenta
 #set -g status-left .#[fg=green]#H.
 #set-window-option -g window-status-current-format '#[bg=magenta,fg=white,bold]#I#[bg=magenta,fg=white]:#[fg=white]#W#[fg=dim]#F'
 set-window-option -g window-status-current-format '#[bg=blue,fg=white,bold]#I#[bg=blue,fg=white]:#[fg=white]#W#[fg=dim]#F'
