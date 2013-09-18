@@ -72,3 +72,6 @@ alias ls="ls --color"
 
 # tmux and rvm hack
 #if [[ -f .rvmrc ]]; then cd ..; cd -; fi
+
+# ZEUS Gem
+export ZEUSSOCK=/tmp/.zeus.sock
