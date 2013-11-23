@@ -1,0 +1,78 @@
+[global_config]
+  title_transmit_bg_color = "#000000"
+  title_inactive_bg_color = "#000000"
+[keybindings]
+  hide_window = <Shift><Control>a
+[profiles]
+  [[solarized-dark]]
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    background_color = "#002b36"
+    cursor_color = "#eee8d5"
+    foreground_color = "#eee8d5"
+  [[base16-default-light]]
+    palette = "#202020:#ac4142:#90a959:#f5bf75:#6a9fb5:#8f5536:#75b5aa:#e0e0e0:#151515:#d28445:#303030:#505050:#b0b0b0:#aa759f:#d0d0d0:#f5f5f5"
+    background_color = "#f5f5f5"
+    cursor_color = "#303030"
+  [[solarized-light]]
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    background_color = "#eee8d5"
+    cursor_color = "#002b36"
+    foreground_color = "#002b36"
+  [[default]]
+    scrollbar_position = hidden
+    palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
+    background_darkness = 0.83
+    scrollback_lines = 5000
+    background_type = transparent
+    use_system_font = False
+    cursor_color = "#d8d8d8"
+    foreground_color = "#d8d8d8"
+    scroll_on_output = False
+    show_titlebar = False
+    color_scheme = custom
+    font = Monospace 10
+    background_color = "#2e3436"
+    scrollback_infinite = True
+  [[base16-chalk-light]]
+    palette = "#202020:#fb9fb1:#acc267:#ddb26f:#6fc2ef:#deaf8f:#12cfc0:#e0e0e0:#151515:#eda987:#303030:#505050:#b0b0b0:#e1a3ee:#d0d0d0:#f5f5f5"
+    background_color = "#f5f5f5"
+    cursor_color = "#303030"
+    foreground_color = "#303030"
+  [[base16-bright]]
+    palette = "#000000:#fb0120:#a1c659:#fda331:#6fb3d2:#d381c3:#76c7b7:#e0e0e0:#b0b0b0:#fc6d24:#303030:#505050:#d0d0d0:#f5f5f5:#be643c:#ffffff"
+    cursor_color = "#e0e0e0"
+    foreground_color = "#e0e0e0"
+  [[base16-chalk-dark]]
+    palette = "#151515:#fb9fb1:#acc267:#ddb26f:#6fc2ef:#e1a3ee:#12cfc0:#d0d0d0:#505050:#eda987:#202020:#303030:#b0b0b0:#e0e0e0:#deaf8f:#f5f5f5"
+    background_color = "#151515"
+    cursor_color = "#d0d0d0"
+    foreground_color = "#d0d0d0"
+  [[base16-bright-light]]
+    palette = "#303030:#fb0120:#a1c659:#fda331:#6fb3d2:#be643c:#76c7b7:#f5f5f5:#000000:#fc6d24:#505050:#b0b0b0:#d0d0d0:#d381c3:#e0e0e0:#ffffff"
+    background_color = "#ffffff"
+    cursor_color = "#505050"
+  [[base16-default-dark]]
+    palette = "#151515:#ac4142:#90a959:#f4bf75:#6a9fb5:#aa759f:#75b5aa:#d0d0d0:#505050:#d28445:#202020:#303030:#b0b0b0:#e0e0e0:#8f5536:#f5f5f5"
+    background_color = "#151515"
+    cursor_color = "#d0d0d0"
+    foreground_color = "#d0d0d0"
+  [[base16-tomorrow]]
+    palette = "#000000:#8e908c:#c82829:#ff3334:#718c00:#9ec400:#f5871f:#eab700:#4271ae:#5795e6:#8959a8:#b777e0:#3e999f:#54ced6:#d6d6d6:#efefef"
+    background_color = "#fafafa"
+    cursor_color = "#d6d6d6"
+    foreground = "#4d4d4c"
+  [[base16-tomorrow-night]]
+    palette = "#000000:#912226:#778900:#ae7b00:#1d2594:#682a9b:#2b6651:#929593:#666666:#cc6666:#b5bd68:#f0c674:#81a2be:#b294bb:#8abeb7:#ecebec"
+    background_color = "#1d1f21"
+    cursor_color = "#aeafad"
+    foreground_color = "#c5c8c6"
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = base16-tomorrow-night
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
