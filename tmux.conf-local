@@ -43,6 +43,11 @@ bind e previous-window
 bind f next-window
 bind j select-pane -D
 bind k select-pane -U
+bind + resize-pane -U 10
+bind - resize-pane -D 10
+bind < resize-pane -L 10
+bind > resize-pane -R 10
+
 
 set-option -g status-utf8 on
 
