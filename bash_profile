@@ -66,9 +66,15 @@ fi
 # TMUX
 alias  tmux="tmux -2"
 
-alias ls="ls --color"
+#alias ls="ls --color"
 
+if [ -d "$HOME/.rvm" ] ; then
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+fi
+
+if [ -d "$HOME/.nvm" ] ; then
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
+fi
 
 # tmux and rvm hack
 #if [[ -f .rvmrc ]]; then cd ..; cd -; fi

@@ -59,8 +59,14 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-if [ -d "$HOME/.node/bin" ] ; then
-    PATH="$HOME/.node/bin:$PATH"
+# Node Version Manager
+if [ -d "$HOME/.nvm" ] ; then
+[[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
+fi
+
+# Ruby Version Manager
+if [ -d "$HOME/.rvm" ] ; then
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 fi
 
 # TMUX
@@ -68,10 +74,9 @@ alias  tmux="tmux -2"
 
 alias ls="ls --color"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 # tmux and rvm hack
 #if [[ -f .rvmrc ]]; then cd ..; cd -; fi
 if [ -z "$TMUX" ]; then
   tmux attach -t bee || tmux new -s bee
 fi
+
