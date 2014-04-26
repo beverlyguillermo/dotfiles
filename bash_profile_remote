@@ -24,7 +24,7 @@ export GIT_EDITOR=vim
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 #export PS1="\[\033[0;35m\]\u \[\033[0;37m\]at \[\033[0;33m\]\h\[\033[0;37m\]:\[\033[0;34m\]\$(date +%H:%M)\[\033[0;37m\] in \[\033[0;32m\]\w\[\033[0;34m\] \$(parse_git_branch) \n\[\033[0;37m\]$\[\033[0m\] "
-export PS1="\[\033[0;44m\]\u at \h\[\033[0;37m\] \[\033[0;37m\]in \[\033[0;32m\]\w\[\033[0;34m\] \$(parse_git_branch) \n\[\033[0;37m\]$\[\033[0m\] "
+export PS1="\[\033[1;44m\]\u at \h\[\033[0;37m\] \[\033[0;37m\]in \[\033[0;32m\]\w\[\033[0;34m\] \$(parse_git_branch) \n\[\033[0;37m\]$\[\033[0m\] "
 #export PS1="\[\033[0;45m\]\u at \h\[\033[0;37m\] \[\033[0;37m\]in \[\033[0;32m\]\w\[\033[0;34m\] \$(parse_git_branch) \n\[\033[0;37m\]$\[\033[0m\] "
 
 # Colors
@@ -71,7 +71,6 @@ fi
 
 # TMUX
 alias  tmux="tmux -2"
-
 alias ls="ls --color"
 
 # tmux and rvm hack
@@ -80,3 +79,6 @@ if [ -z "$TMUX" ]; then
   tmux attach -t bee || tmux new -s bee
 fi
 
+BASE16_SCHEME="default"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-$BASE16_SCHEME.dark.sh"
+[[ -s $BASE16_SHELL ]] && . $BASE16_SHELL

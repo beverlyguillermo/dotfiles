@@ -1,20 +1,21 @@
 # ` is an interesting key for a prefix
 # set-option -g prefix C-a # similar to screen
-set-option -g prefix `
-
-unbind-key C-b
-bind-key C-a last-window
-bind-key ` last-window
-bind-key a send-prefix
+#set-option -g prefix `
+#unbind-key C-b
+#bind-key C-a last-window
+#bind-key ` last-window
+#bind-key a send-prefix
 
 # we might need ` at some point, allow switching
 # we can also send the prefix char with `-a
-bind-key F11 set-option -g prefix C-a
-bind-key F12 set-option -g prefix `
+#bind-key F11 set-option -g prefix C-a
+#bind-key F12 set-option -g prefix `
 
 # 0 is too far from `
-set -g base-index 1
-set -g default-terminal "screen-256color"
+#set -g base-index 1
+#set -g default-terminal "screen-256color"
+#set -g default-terminal "xterm-256color"
+set -g default-terminal "xterm"
 
 #set-option -g default-terminal "screen-256color"
 #set-option -g mouse-mode on

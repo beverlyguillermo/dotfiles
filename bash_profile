@@ -1,17 +1,17 @@
 function parse_hg_branch {
 # ☿
-  local hg_status=`hg status`
+	local hg_status=`hg status`
 }
 
 function parse_git_branch {
-  local git_status="`git status -unormal 2>&1`"
-  if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
-    if [[ "$git_status" =~ nothing\ to\ commit ]]; then
-      git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/± [ \1 ]/"
-    else
-      git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/± [ \1* ]/"
-    fi
-  fi
+	local git_status="`git status -unormal 2>&1`"
+	if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
+		if [[ "$git_status" =~ nothing\ to\ commit ]]; then
+			git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/± [ \1 ]/"
+		else
+			git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/± [ \1* ]/"
+		fi
+	fi
 }
 
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
@@ -31,9 +31,9 @@ export PS1="\[\033[0;35m\]\u\[\033[0;37m\] at \[\033[0;33m\]\h\[\033[0;37m\]:\[\
 export TERM="xterm-256color"
 
 #if [ -e /usr/share/terminfo/x/xterm-256color ]; then
-#  export TERM='xterm-256color'
+#	export TERM='xterm-256color'
 #else
-#  export TERM='xterm-color'
+#	export TERM='xterm-color'
 #fi
 
 # ~/.profile: executed by the command interpreter for login shells.
@@ -48,19 +48,19 @@ umask 002
 
 # if running bash
 #if [ -n "$BASH_VERSION" ]; then
-#    include .bashrc if it exists
-#  if [ -f "$HOME/.bashrc" ]; then
-#    "$HOME/.bashrc"
-#  fi
+#		include .bashrc if it exists
+#	if [ -f "$HOME/.bashrc" ]; then
+#		"$HOME/.bashrc"
+#	fi
 #fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+	PATH="$HOME/bin:$PATH"
 fi
 
 if [ -d "$HOME/.node/bin" ] ; then
-    PATH="$HOME/.node/bin:$PATH"
+	PATH="$HOME/.node/bin:$PATH"
 fi
 
 # TMUX
@@ -68,12 +68,18 @@ alias  tmux="tmux -2"
 
 #alias ls="ls --color"
 
-if [ -d "$HOME/.rvm" ] ; then
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+if [ -d "$HOME/.pyenv" ] ; then
+	PYENV_ROOT="$HOME/.pyenv"
+	PATH="$PYENV_ROOT/bin:$PATH"
+	eval "$(pyenv init -)"
 fi
 
 if [ -d "$HOME/.nvm" ] ; then
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh # This loads NVM
+fi
+
+if [ -d "$HOME/.rvm" ] ; then
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 fi
 
 # tmux and rvm hack

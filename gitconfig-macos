@@ -1,8 +1,8 @@
 [diff]
-	tool = mvimdiff
+	tool = araxis
 
 [merge]
-  tool = mvimdiff
+  tool = araxis
 
 [color]
   ui = auto
@@ -23,7 +23,6 @@
 
 [apply]
   whitespace = nowarn
-  ignorewhitespace = true
 
 [difftool "mvimdiff"]
   cmd = mvim -f -d \"$LOCAL\" \"$REMOTE\"

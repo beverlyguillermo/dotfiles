@@ -18,6 +18,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
 Bundle 'majutsushi/tagbar'
 Bundle 'kien/ctrlp.vim'
+Bundle 'msanders/snipmate.vim'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-fugitive'
 "Bundle 'tpope/vim-surround'
@@ -25,17 +26,26 @@ Bundle 'tpope/vim-commentary'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Bundle 'chriskempson/base16-vim'
 "Bundle 'vim-scripts/YankRing.vim'
+Bundle 'sjl/gundo.vim'
 "javascript syntax
 Bundle 'jelera/vim-javascript-syntax'
 " coffescript syntax
 Bundle 'kchmck/vim-coffee-script'
 " html5 syntax
 Bundle 'othree/html5.vim'
+" match html/xml tags
+"Bundle 'valloric/MatchTagAlways'
+Bundle 'gregsexton/MatchTag'
 " less syntax
 Bundle 'groenewege/vim-less'
 " markdown syntax
 Bundle 'tpope/vim-markdown'
+" Pandoc
+Bundle 'vim-pandoc/vim-pandoc'
+" Vimroom / Writing
+Bundle 'mikewest/vimroom'
 " Ruby associated bundles
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-bundler'
@@ -60,16 +70,17 @@ set backupdir=/tmp/beverlyguillermo
 set directory=/tmp/beverlyguillermo
 " show the line numbers
 set number
+
 " tabs
-set tabstop=2
+"set tabstop=2
 " backspace for converted tab
-set softtabstop=2
+"set softtabstop=2
 " amount of block indenting
-set shiftwidth=2
+"set shiftwidth=2
 " convert tabs into spaces
-set expandtab
+"set expandtab
 " uses the shiftwidth instead of tabstop
-set smarttab
+"set smarttab
 " auto indenting when starting a new line
 set smartindent
 " copy indent from current line to new line
@@ -121,7 +132,39 @@ set list listchars=tab:»·,trail:·
 
 "set the gui options the way I like
 
-colorscheme Tomorrow-Night-Eighties
+let base16colorspace=256  " Access colors present in 256 colorspace
+"colorscheme Tomorrow-Night
+"colorscheme base16-3024
+"colorscheme base16-atelierdune
+"colorscheme base16-atelierforest
+"colorscheme base16-atelierheath
+"colorscheme base16-atelierlakeside
+"colorscheme base16-atelierseaside
+"colorscheme base16-bespin
+"colorscheme base16-bright
+"colorscheme base16-chalk
+"colorscheme base16-default
+"colorscheme base16-eighties
+"colorscheme base16-flat
+"colorscheme base16-grayscale
+"colorscheme base16-greenscreen
+"colorscheme base16-isotope
+"colorscheme base16-londontube
+"colorscheme base16-marrakesh
+"colorscheme base16-mocha
+"colorscheme base16-monokai
+"colorscheme base16-ocean
+"colorscheme base16-paraiso
+"colorscheme base16-pop
+"colorscheme base16-railscasts
+colorscheme base16-shapeshifter
+"colorscheme base16-solarized
+"colorscheme base16-tomorrow
+"colorscheme base16-twilight
+
+
+" Dark Background
+"set background=dark
 
 if has('gui_running')
 
@@ -156,10 +199,12 @@ set tags=./.tags,.tags,./.gemtags,.gemtags;
 set comments=sl:/*,mb:\ *,ex:\ */,O://,b:#,:%,:XCOMM,n:>,fb:-
 
 filetype plugin indent on     " required!
+autocmd FileType * setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html setlocal tabstop=2 shiftwidth=2 expandtab
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
@@ -175,6 +220,7 @@ set completeopt=longest,menuone " improve completion
 " Remove trailing white space
 autocmd BufRead * silent! %s/[\r \t]\+$//
 autocmd BufEnter *.rb :%s/[ \t\r]\+$//e
+autocmd BufEnter *.py set ai sw=4 ts=4 sta et fo=croql
 augroup filetypedetect
   au BufNewFile,BufRead *.html set filetype=html
   au BufNewFile,BufRead *.php  set filetype=php.html
@@ -214,10 +260,8 @@ noremap <silent> ,ch :wincmd h<CR>:close<CR>
 noremap <silent> ,cl :wincmd l<CR>:close<CR>
 noremap <silent> ,cw :cclose<CR>
 noremap <silent> ,bd :bd<CR>
-noremap <silent> <C-7> <C-W>>
-noremap <silent> <C-8> <C-W>+
-noremap <silent> <C-9> <C-W>+
-noremap <silent> <C-0> <C-W>>
+nnoremap <C-Up> gT
+nnoremap <C-Down> gt
 
 " Highlight all instances of the current word under the cursor
 nmap <silent> ^ :setl hls<CR>:let @/="<C-r><C-w>"<CR>
@@ -235,11 +279,14 @@ nmap <silent> ^ :setl hls<CR>:let @/="<C-r><C-w>"<CR>
 "nmap <silent> ,gw :s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR>`'
 
 " Underline the current line with '='
+
 nmap <silent> ,ul :t.\|s/./=/g\|set nohls<cr>
 
 " put the vim directives for my file editing settings in
 nmap <silent> ,vi
      \ ovim:set ts=2 sts=2 sw=2:<CR>vim600:fdm=marker fdl=1 fdc=0:<ESC>
+
+nmap <silent> ,u :GundoToggle<cr>
 
 nmap <silent> ,p  :NERDTreeToggle<cr>
 let g:NERDTreeMapOpenSplit = 'i'
@@ -259,8 +306,6 @@ let g:indent_guides_start_level = 2
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'vim']
 " For vim-indent-guides plugin
-" Dark Background
-set background=dark
 hi IndentGuidesOdd  ctermbg=237
 hi IndentGuidesEven ctermbg=130
 " Light Background
