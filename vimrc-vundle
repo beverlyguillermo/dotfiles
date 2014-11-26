@@ -51,6 +51,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-endwise'
 
 
 syntax on
@@ -72,15 +73,15 @@ set directory=/tmp/beverlyguillermo
 set number
 
 " tabs
-"set tabstop=2
+set tabstop=2
 " backspace for converted tab
-"set softtabstop=2
+set softtabstop=2
 " amount of block indenting
-"set shiftwidth=2
+set shiftwidth=2
 " convert tabs into spaces
-"set expandtab
+set expandtab
 " uses the shiftwidth instead of tabstop
-"set smarttab
+set smarttab
 " auto indenting when starting a new line
 set smartindent
 " copy indent from current line to new line
@@ -133,7 +134,7 @@ set list listchars=tab:»·,trail:·
 "set the gui options the way I like
 
 let base16colorspace=256  " Access colors present in 256 colorspace
-"colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night
 "colorscheme base16-3024
 "colorscheme base16-atelierdune
 "colorscheme base16-atelierforest
@@ -157,7 +158,7 @@ let base16colorspace=256  " Access colors present in 256 colorspace
 "colorscheme base16-paraiso
 "colorscheme base16-pop
 "colorscheme base16-railscasts
-colorscheme base16-shapeshifter
+"colorscheme base16-shapeshifter
 "colorscheme base16-solarized
 "colorscheme base16-tomorrow
 "colorscheme base16-twilight
@@ -242,9 +243,9 @@ nnoremap <c-e> ,
 vnoremap <c-e> ,
 
 " Maps to make handling windows a bit easier
-"set winheight=30
-"set winminheight=5
-"set winminwidth=10
+" set winheight=30
+" set winminheight=5
+" set winminwidth=10
 noremap <silent> ,h :wincmd h<CR>
 noremap <silent> ,j :wincmd j<CR>
 noremap <silent> ,k :wincmd k<CR>
@@ -311,3 +312,4 @@ hi IndentGuidesEven ctermbg=130
 " Light Background
 "hi IndentGuidesOdd  ctermbg=black
 "hi IndentGuidesEven ctermbg=darkgrey
+
