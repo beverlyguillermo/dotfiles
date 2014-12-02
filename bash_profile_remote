@@ -4,6 +4,48 @@ local hg_status=`hg status`
 }
 
 function parse_git_branch {
+    # export GITBRANCH=""
+
+    # local repo="${_GITBRANCH_LAST_REPO-}"
+    # local gitdir=""
+    # [[ ! -z "$repo" ]] && gitdir="$repo/.git"
+
+    # # If we don't have a last seen git repo, or we are in a different directory
+    # if [[ -z "$repo" || "$PWD" != "$repo"* || ! -e "$gitdir" ]]; then
+    #     local cur="$PWD"
+    #     while [[ ! -z "$cur" ]]; do
+    #         if [[ -e "$cur/.git" ]]; then
+    #             repo="$cur"
+    #             gitdir="$cur/.git"
+    #             break
+    #         fi
+    #         cur="${cur%/*}"
+    #     done
+    # fi
+
+    # if [[ -z "$gitdir" ]]; then
+    #     unset _GITBRANCH_LAST_REPO
+    #     return 0
+    # fi
+    # export _GITBRANCH_LAST_REPO="${repo}"
+    # local head=""
+    # local branch=""
+    # read head < "$gitdir/HEAD"
+    # case "$head" in
+    #     ref:*)
+    #         branch="${head##*/}"
+    #         ;;
+    #     "")
+    #         branch=""
+    #         ;;
+    #     *)
+    #         branch="d:${head:0:7}"
+    #         ;;
+    # esac
+    # if [[ -z "$branch" ]]; then
+    #     return 0
+    # fi
+    # export GITBRANCH="$branch"
   local git_status="`git status -unormal 2>&1`"
   if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
     if [[ "$git_status" =~ nothing\ to\ commit ]]; then
@@ -12,6 +54,7 @@ function parse_git_branch {
       git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/± [ \1* ]/"
     fi
   fi
+  
 }
 
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
@@ -23,8 +66,10 @@ export GIT_EDITOR=vim
 
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
+parse_git_branch
+#export PS1="\[\033[0;35m\]\u\[\033[0;37m\] at \[\033[0;33m\]\h\[\033[0;37m\]:\[\033[0;34m\]\A\[\033[0;37m\] in \[\033[0;32m\]\w\[\033[0;34m\] \$GITBRANCH \n\[\033[0;37m\]\`if [ \$? == 0 ]; then echo \:\); else echo \:\(; fi\`\[\033[0m\] "
 #export PS1="\[\033[0;35m\]\u \[\033[0;37m\]at \[\033[0;33m\]\h\[\033[0;37m\]:\[\033[0;34m\]\$(date +%H:%M)\[\033[0;37m\] in \[\033[0;32m\]\w\[\033[0;34m\] \$(parse_git_branch) \n\[\033[0;37m\]$\[\033[0m\] "
-export PS1="\[\033[1;44m\]\u at \h\[\033[0;37m\] \[\033[0;37m\]in \[\033[0;32m\]\w\[\033[0;34m\] \$(parse_git_branch) \n\[\033[0;37m\]$\[\033[0m\] "
+export PS1="\[\033[1;44m\]\u at \h\[\033[0;37m\] \[\033[0;37m\]in \[\033[0;32m\]\w\[\033[0;34m\] \$GITBRANCH \n\[\033[0;37m\]$\[\033[0m\] "
 #export PS1="\[\033[0;45m\]\u at \h\[\033[0;37m\] \[\033[0;37m\]in \[\033[0;32m\]\w\[\033[0;34m\] \$(parse_git_branch) \n\[\033[0;37m\]$\[\033[0m\] "
 
 # Colors
@@ -67,6 +112,12 @@ fi
 # Ruby Version Manager
 if [ -d "$HOME/.rvm" ] ; then
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+fi
+
+# Python Version Manager
+if [ -d "$HOME/.pyenv" ] ; then
+  PATH="$HOME/.pyenv/bin:$PATH"
+  eval "$(pyenv init -)"
 fi
 
 # TMUX
