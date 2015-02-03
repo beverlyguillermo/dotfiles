@@ -230,6 +230,9 @@ augroup filetypedetect
   au BufNewFile,BufRead *.coffeescript set filetype=javascript.coffeescript
 augroup end
 
+
+cmap w!! %!sudo tee > /dev/null %
+
 " Remove highlight and do escape
 "nnoremap <esc> :noh<cr>
 

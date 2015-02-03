@@ -28,13 +28,13 @@ export PS1="\[\033[0;35m\]\u\[\033[0;37m\] at \[\033[0;33m\]\h\[\033[0;37m\]:\[\
 #export PS1="\[\033[0;44m\]\u\[\033[0;37m\] at \[\033[0;33m\]\h\[\033[0;37m\] \[\033[0;37m\]in \[\033[0;32m\]\w\[\033[0;34m\] \$(parse_git_branch) \n\[\033[0;37m\]$\[\033[0m\] "
 
 # Colors
-export TERM="xterm-256color"
-
-#if [ -e /usr/share/terminfo/x/xterm-256color ]; then
-#  export TERM='xterm-256color'
-#else
-#  export TERM='xterm-color'
-#fi
+if [ "$TMUX_PANE" != "" ]; then
+  export TERM="screen-256color"
+elif [ -e /usr/share/terminfo/x/xterm-256color ]; then
+  export TERM='xterm-256color'
+else
+  export TERM='xterm-color'
+fi
 
 # ~/.profile: executed by the command interpreter for login shells.
 # This file is not read by bash(1), if ~/.bash_profile or ~/.bash_login
@@ -63,12 +63,25 @@ if [ -d "$HOME/.node/bin" ] ; then
     PATH="$HOME/.node/bin:$PATH"
 fi
 
+if [ -d "$HOME/.nvm" ]; then
+    export NVM_DIR=~/.nvm
+    source $(brew --prefix nvm)/nvm.sh
+fi
+if [ -d "$HOME/node_modules/.bin" ] ; then
+    PATH="$PATH:$HOME/node_modules/.bin"
+fi
+
+if [ -d "$HOME/Library/Android/sdk/tools" ] ; then
+    export ANDROID_HOME="$HOME/Library/Android/sdk"
+    PATH="$PATH:$HOME/Libarary/Android/sdk/platform-tools:$HOME/Library/Android/sdk/tools"
+fi
+
+
 # TMUX
 alias  tmux="tmux -2"
 
 #alias ls="ls --color"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-# tmux and rvm hack
-#if [[ -f .rvmrc ]]; then cd ..; cd -; fi
+if [ -d "$HOME/.rvm" ] ; then
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+fi
