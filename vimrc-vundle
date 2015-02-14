@@ -6,7 +6,7 @@ set nocompatible               " be iMproved
 filetype off                   " required!
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
 " let Vundle manage Vundle
 " required!
@@ -65,6 +65,8 @@ Plugin 'tyru/open-browser.vim'
 Plugin 'vim-scripts/a.vim'
 Plugin 'tomasr/molokai'
 Plugin 'flazz/vim-colorschemes'
+
+call vundle#end()
 
 syntax on
 " Always put status line at the 2nd to last line
