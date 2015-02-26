@@ -13,9 +13,9 @@
 
 # 0 is too far from `
 #set -g base-index 1
-#set -g default-terminal "screen-256color"
+set -g default-terminal "screen-256color"
 #set -g default-terminal "xterm-256color"
-set -g default-terminal "xterm"
+#set -g default-terminal "xterm"
 
 #set-option -g default-terminal "screen-256color"
 #set-option -g mouse-mode on
@@ -27,7 +27,7 @@ set-option -g set-titles on
 set-option -g set-titles-string '#H:#S.#I.#P #W #T' # window number,program name,active (or not)
 set-option -g visual-bell on
 
-set status bar
+#set status bar
 set -g status-bg black
 set -g status-fg yellow
 #set -g status-left .#[fg=green]#H.

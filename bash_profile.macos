@@ -59,14 +59,17 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+if [ -d "$HOME/.nvm" ] ; then
+    source ~/.nvm/nvm.sh
+    export NVM_DIR=~/.nvm
+    source $(brew --prefix nvm)/nvm.sh
+fi
+
 if [ -d "$HOME/.node/bin" ] ; then
     PATH="$HOME/.node/bin:$PATH"
 fi
 
-if [ -d "$HOME/.nvm" ]; then
-    export NVM_DIR=~/.nvm
-    source $(brew --prefix nvm)/nvm.sh
-fi
+
 if [ -d "$HOME/node_modules/.bin" ] ; then
     PATH="$PATH:$HOME/node_modules/.bin"
 fi
@@ -84,4 +87,8 @@ alias  tmux="tmux -2"
 
 if [ -d "$HOME/.rvm" ] ; then
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+  export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 fi
+
+# tmux and rvm hack
+#if [[ -f .rvmrc ]]; then cd ..; cd -; fi
