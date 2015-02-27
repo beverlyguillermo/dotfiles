@@ -64,9 +64,12 @@ if [ -d "$HOME/.node/bin" ] ; then
 fi
 
 if [ -d "$HOME/.nvm" ] ; then
-    source ~/.nvm/nvm.sh
     export NVM_DIR=~/.nvm
-    source $(brew --prefix nvm)/nvm.sh
+    if [ -f "$HOME/.nvm/nvm.sh" ] ; then
+      source ~/.nvm/nvm.sh
+    else
+      source $(brew --prefix nvm)/nvm.sh
+    fi
 fi
 
 if [ -d "$HOME/node_modules/.bin" ] ; then
