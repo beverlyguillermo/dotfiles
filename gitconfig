@@ -1,32 +1,36 @@
 [diff]
-	prompt = false
-	tool = vimdiff
+	tool = araxis
 
 [merge]
-	prompt = false
-	tool = vimdiff
+  tool = araxis
 
 [color]
-	ui = auto
+  ui = auto
+
+[color "diff"]
+  whitespace = blue reverse
 
 [core]
-	excludesfile = /Users/beverlyguillermo/.gitignore_global
-	editor = vim -f
-	filemode = false
+  excludesfile = ~/.gitignore
+  editor = vim
 
 [svn]
-	rmdir = true
+  rmdir = true
 
 [user]
-	name = Beverly Guillermo
-	email = beverly.guillermo@gmail.com
+  name = Beverly Guillermo
+  email = beverly@developdc.com
+
 [apply]
-	whitespace = nowarn
+  whitespace = nowarn
 
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+[difftool "mvimdiff"]
+  cmd = mvim -f -d \"$LOCAL\" \"$REMOTE\"
 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+[mergetool "mvimdiff"]
+  cmd = mvimdiff \"$LOCAL\" \"$REMOTE\" \"$MERGED\" \"$BASE\"
+  keepBackup = false
+
+[alias]
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
