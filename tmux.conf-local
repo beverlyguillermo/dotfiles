@@ -27,7 +27,7 @@ set-option -g set-titles on
 set-option -g set-titles-string '#H:#S.#I.#P #W #T' # window number,program name,active (or not)
 set-option -g visual-bell on
 
-set status bar
+#set status bar
 set -g status-bg black
 set -g status-fg yellow
 #set -g status-left .#[fg=green]#H.

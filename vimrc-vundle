@@ -65,6 +65,8 @@ Plugin 'tyru/open-browser.vim'
 Plugin 'vim-scripts/a.vim'
 Plugin 'tomasr/molokai'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'mtscout6/vim-cjsx'
+Plugin 'moll/vim-bbye'
 
 call vundle#end()
 
@@ -177,34 +179,7 @@ if has('gui_running')
     set guifont=inconsolata:12`
   endif
 
-colorscheme Tomorrow-Night
-"colorscheme base16-3024
-"colorscheme base16-atelierdune
-"colorscheme base16-atelierforest
-"colorscheme base16-atelierheath
-"colorscheme base16-atelierlakeside
-"colorscheme base16-atelierseaside
-"colorscheme base16-bespin
-"colorscheme base16-bright
-"colorscheme base16-chalk
-"colorscheme base16-default
-"colorscheme base16-eighties
-"colorscheme base16-flat
-"colorscheme base16-grayscale
-"colorscheme base16-greenscreen
-"colorscheme base16-isotope
-"colorscheme base16-londontube
-"colorscheme base16-marrakesh
-"colorscheme base16-mocha
-"colorscheme base16-monokai
-"colorscheme base16-ocean
-"colorscheme base16-paraiso
-"colorscheme base16-pop
-"colorscheme base16-railscasts
-"colorscheme base16-shapeshifter
-"colorscheme base16-solarized
-"colorscheme base16-tomorrow
-"colorscheme base16-twilight
+colorscheme Tomorrow
 
 endif
 
