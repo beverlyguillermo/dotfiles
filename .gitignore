@@ -5,6 +5,7 @@ vim/.netrwhist
 vim/bundle
 vim/tmp
 vim/tmp/.*~
+tmux/plugins
 *.o
 *.so
 *.swp

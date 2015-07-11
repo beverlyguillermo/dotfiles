@@ -54,5 +54,12 @@ set-option -g status-utf8 on
 
 set -g history-limit 4096
 
+# Plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
 # `+r reloads the configuration, handy
 bind r source-file ~/.tmux.conf
+
+# Initialize TMUX plugin manager
+run '~/.tmux/plugins/tpm/tpm'

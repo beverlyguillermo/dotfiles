@@ -4,3 +4,6 @@
 [submodule "textmate/cjsx.tmbundle"]
 	path = textmate/cjsx.tmbundle
 	url = https://github.com/ruswerner/cjsx.tmbundle.git
+[submodule "tmux/plugins/tpm"]
+	path = tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
