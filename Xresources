@@ -1,0 +1,8 @@
+xterm*faceName: Deja Vu Sans Mono:size=10:antialias=false
+xterm*vt100*geometry:    90x50
+xterm*saveLines:         16384
+xterm*loginShell:        true
+xterm*termName:          xterm-color
+xterm*charClass:         33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48
+xterm*eightBitInput:     false
+xterm*selectToClipboard: true
