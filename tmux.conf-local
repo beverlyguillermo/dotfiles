@@ -34,7 +34,7 @@ set -g status-fg yellow
 #set-window-option -g window-status-current-format '#[bg=magenta,fg=white,bold]#I#[bg=magenta,fg=white]:#[fg=white]#W#[fg=dim]#F'
 set-window-option -g window-status-current-format '#[bg=blue,fg=white,bold]#I#[bg=blue,fg=white]:#[fg=white]#W#[fg=dim]#F'
 #set -g status-right '#[fg=green][#[fg=white]#T#[fg=green]][#[fg=blue]%Y-%m-%d #[fg=white]%H:%M#[default]#[fg=green]]'
-set -g status-right '#[fg=magenta]#(hostname) [%Y-%m-%d %H:%M:%S]'
+set -g status-right '#[fg=magenta]#(hostname) [#{battery_percentage}] [%Y-%m-%d %H:%M:%S]'
 
 setw -g mode-keys vi
 setw -g mode-mouse on
@@ -55,11 +55,12 @@ set-option -g status-utf8 on
 set -g history-limit 4096
 
 # Plugins
-set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugins 'tmux-plugins/tpm'
+#set -g @plugins 'tmux-plugins/tmux-sensible'
+set -g @plugins 'tmux-plugins/tmux-battery'
 
 # `+r reloads the configuration, handy
-bind r source-file ~/.tmux.conf
+# bind r source-file ~/.tmux.conf
 
 # Initialize TMUX plugin manager
 run '~/.tmux/plugins/tpm/tpm'
