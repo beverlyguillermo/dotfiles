@@ -81,17 +81,20 @@ if [ -d "$HOME/Library/Android/sdk/tools" ] ; then
     PATH="$PATH:$HOME/Libarary/Android/sdk/platform-tools:$HOME/Library/Android/sdk/tools"
 fi
 
-
-# TMUX
-alias  tmux="tmux -2"
-
-#alias ls="ls --color"
-
 if [ -d "$HOME/.rvm" ] ; then
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 fi
 
-export VAGRANT_DEFAULT_PROVIDER=virtualbox
+if [ -f "/usr/local/bin/docker-machine" ]; then
+  eval "$(docker-machine env default)"
+fi
 
-export SAUCE_USERNAME=beverlyguillermo
-export SAUCE_API_KEY=560811fa-9544-46ec-9657-5a98176bb747
+# override system commands
+# alias ls="ls --color"
+
+# TMUX
+alias  tmux="tmux -2"
+
+# Local environments
+
+export VAGRANT_DEFAULT_PROVIDER=virtualbox

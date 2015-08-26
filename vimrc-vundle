@@ -180,12 +180,13 @@ if has('gui_running')
     set guifont=inconsolata:12`
   endif
 
-colorscheme Tomorrow
+"colorscheme Tomorrow
+colorscheme tango2
 
 endif
 
 " Set tag files
-set tags=./.tags,.tags,./.gemtags,.gemtags;
+set tags=./.tags,.tags,./.gemtags,.gemtags,./gems.tags,gem.tags,./tags,tags;
 
 " These things start comment lines
 set comments=sl:/*,mb:\ *,ex:\ */,O://,b:#,:%,:XCOMM,n:>,fb:-
@@ -255,6 +256,7 @@ noremap <silent> ,ch :wincmd h<CR>:close<CR>
 noremap <silent> ,cl :wincmd l<CR>:close<CR>
 noremap <silent> ,cw :cclose<CR>
 noremap <silent> ,bd :bd<CR>
+noremap <silent> ,bda :bufdo bd<CR>
 nnoremap <C-Up> gT
 nnoremap <C-Down> gt
 
@@ -288,6 +290,7 @@ let g:NERDTreeMapOpenSplit = 'i'
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeIgnore     = ['.DS_Store', '.git', '*.bak']
+autocmd BufWinEnter * NERDTreeMirror
 
 nmap <silent> ,tb :TagbarToggle<cr>
 let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
