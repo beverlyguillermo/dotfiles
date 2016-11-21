@@ -5,6 +5,12 @@ autocmd! bufwritepost .vimrc source %
 set nocompatible               " be iMproved
 filetype off                   " required!
 
+set mouse=a
+if &term =~ '^screen'
+  " tmux knows the extended mouse mode
+  set ttymouse=xterm2
+endif
+
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
@@ -35,6 +41,7 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'kchmck/vim-coffee-script'
 " html5 syntax
 Plugin 'othree/html5.vim'
+Plugin 'mustache/vim-mustache-handlebars'
 " match html/xml tags
 "Plugin 'valloric/MatchTagAlways'
 "Plugin 'valloric/YouCompleteMe'
@@ -88,6 +95,9 @@ set backupdir=/tmp/beverlyguillermo
 set directory=/tmp/beverlyguillermo
 " show the line numbers
 set number
+
+" clipboard
+set clipboard=unnamed
 
 " tabs
 set tabstop=2
@@ -148,6 +158,12 @@ set list
 set cursorline
 set list listchars=tab:»·,trail:·
 
+" http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
+"hi CursorLine term=bold cterm=bold ctermbg=235 guibg=DarkGrey
+hi CursorLine cterm=bold ctermbg=235 guibg=DarkGrey
+hi CursorColumn ctermbg=235
+hi ColorColumn ctermbg=Black guibg=#2c2727
+let &colorcolumn="120,".join(range(120,999),",")
 "set the gui options the way I like
 
 let base16colorspace=256  " Access colors present in 256 colorspace
@@ -316,3 +332,6 @@ hi IndentGuidesEven ctermbg=130
 "let g:vimroom_scrolloff = 999
 let g:vimroom_sidebar_height = 0
 let g:vimroom_width = 80
+
+"mustache
+let g:mustache_abbreviations = 1

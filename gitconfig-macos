@@ -1,8 +1,8 @@
 [diff]
-	tool = araxis
+  tool = vimdiff #araxis
 
 [merge]
-  tool = araxis
+  tool = vimdiff #araxis
 
 [color]
   ui = auto
