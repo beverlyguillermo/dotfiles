@@ -29,7 +29,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-fugitive'
 "Plugin 'tpope/vim-surround'
-Plugin 'edsono/vim-matchit'
+Plugin 'geoffharcourt/vim-matchit'
 Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'bling/vim-airline'
@@ -335,3 +335,16 @@ let g:vimroom_width = 80
 
 "mustache
 let g:mustache_abbreviations = 1
+
+" Needed for tmux and vim to play nice
+" Needed for tmux and vim to play nice
+map <Esc>[A <Up>
+map <Esc>[B <Down>
+map <Esc>[C <Right>
+map <Esc>[D <Left>
+
+" Console movement
+cmap <Esc>[A <Up>
+cmap <Esc>[B <Down>
+cmap <Esc>[C <Right>
+cmap <Esc>[D <Left>

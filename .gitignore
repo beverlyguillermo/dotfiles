@@ -6,6 +6,7 @@ vim/bundle
 vim/tmp
 vim/tmp/.*~
 tmux/plugins
+tmux/resurrect
 *.o
 *.so
 *.swp
