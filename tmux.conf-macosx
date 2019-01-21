@@ -1,17 +1,3 @@
-set -g @continuum-restore 'on'
-
-# git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-# -- Reload tmux configuration: tmux source ~/.tmux.conf
-# -- Install Plugins: prefix + I
-set -g @plugin 'tmux-plugins/tpm'
-
-# List of plugins
-set -g @plugin 'tmux-plugins/tmux-resurrect'
-set -g @plugin 'tmux-plugins/tmux-continuum'
-set -g @plugin 'tmux-plugins/tmux-battery-osx'
-
-run '~/.tmux/plugins/tpm/tpm'
-
 # Set the default terminal mode to 256color mode
 set -g default-terminal "xterm-256color"
 
@@ -73,7 +59,22 @@ setw -g window-status-attr default
 
 # Info left
 set -g status-left ''
-#set -g status-right "#[fg=colour69] #(hostname) | #[fg=colour160]♥ #[fg=colour69]#{battery_percentage} | %Y-%m-%d %H:%M |"
+set -g status-right "#[fg=colour69] #(hostname) | #[fg=colour160]♥ #[fg=colour69]#{battery_percentage} | %Y-%m-%d %H:%M |"
+
+
+
+# git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# -- Reload tmux configuration: tmux source ~/.tmux.conf
+# -- Install Plugins: prefix + I
+set -g @plugin 'tmux-plugins/tpm'
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+#set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @plugin 'tmux-plugins/tmux-battery-osx'
+
+run '~/.tmux/plugins/tpm/tpm'
 
 # Restore commands occurring in the panes
-set -g @resurrect-capture-pane-contents 'on'
+#set -g @continuum-restore 'on'
+#set -g @resurrect-capture-pane-contents 'on'
