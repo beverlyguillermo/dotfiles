@@ -1,8 +1,8 @@
 [diff]
-  tool = vimdiff #araxis
+  tool = araxis
 
 [merge]
-  tool = vimdiff #araxis
+  tool = araxis
 
 [color]
   ui = auto
@@ -19,7 +19,8 @@
 
 [user]
   name = Beverly Guillermo
-  email =  beverly.guillermo@gmail.com
+  email = bguillermo@wombatsecurity.com
+	signingkey = BA5A58C12BF94D7AED0B8ED6583F727A34D27E97
 
 [apply]
   whitespace = nowarn

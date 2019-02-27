@@ -1,3 +1,16 @@
+# set -g @continuum-restore 'on'
+#
+# git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# -- Reload tmux configuration: tmux source ~/.tmux.conf
+# -- Install Plugins: prefix + I
+# set -g @plugin 'tmux-plugins/tpm'
+#
+# List of plugins
+# set -g @plugin 'tmux-plugins/tmux-resurrect'
+# set -g @plugin 'tmux-plugins/tmux-continuum'
+# set -g @plugin 'tmux-plugins/tmux-battery-osx'
+#run '~/.tmux/plugins/tpm/tpm'
+
 # Set the default terminal mode to 256color mode
 set -g default-terminal "xterm-256color"
 
@@ -14,7 +27,26 @@ setw -g mode-keys vi
 # copying in osx
 set -g default-command "reattach-to-user-namespace -l /bin/bash"
 bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
-bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe "reattach-to-user-namespace pbcopy"
+# bind-key -T copy-mode-vi MouseDown1Pane select-pane send-keys -X clear-selection
+
+# Setup 'v' to begin selection, just like Vim
+#bind-key -T vi-copy v begin-selection
+
+# Setup 'y' to yank (copy), just like Vim
+#bind-key -T vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+
+# Update default binding of `Enter` to also use copy-pipe
+#unbind -T vi-copy Enter
+#bind-key -T vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+
+# Bind ']' to use pbbaste
+bind ] run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"
+
+# try to keep the current pane's path
+bind '"' split-window -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"
+bind c new-window -c "#{pane_current_path}"
 
 # don't resize the screen if users are in different windows
 set -g aggressive-resize on
@@ -47,9 +79,12 @@ set -g status-interval 5
 set -g status-position bottom
 
 # Window status
-setw -g window-status-format '#[fg=black]#[bg=colour7] #I #[fg=black]#[bg=colour15] #(pwd="#{pane_current_path}"; echo ${pwd####*/})#F '
-setw -g window-status-current-format '#[fg=colour196]#[bg=colour90] #I #[fg=colour7]#[bg=colour53] #(pwd="#{pane_current_path}"; echo ${pwd####*/}):#(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD)#F '
+# setw -g window-status-format '#[fg=black]#[bg=colour7] #I #[fg=black]#[bg=colour15] #(pwd="#{pane_current_path}"; echo ${pwd####*/})#F '
+# setw -g window-status-current-format '#[fg=colour196]#[bg=colour90] #I #[fg=colour7]#[bg=colour53] #(pwd="#{pane_current_path}"; echo ${pwd####*/}):#(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD)#F '
 set-option -g status-interval 1
+
+setw -g window-status-format "#[fg=black]#[bg=colour7] #I #[fg=black]#[bg=colour15] #W "
+setw -g window-status-current-format "#[fg=colour8]#[bg=white] #I #[bg=colour69]#[fg=white] #W#F "
 setw -g window-status-current-bg black
 setw -g window-status-current-fg yellow
 setw -g window-status-current-attr bold
@@ -57,11 +92,16 @@ setw -g window-status-bg black
 setw -g window-status-fg blue
 setw -g window-status-attr default
 
-# Info left
+# Info left # https://devhints.io/tmux
 set -g status-left ''
-set -g status-right "#[fg=colour69] #(hostname) | #[fg=colour160]♥ #[fg=colour69]#{battery_percentage} | %Y-%m-%d %H:%M |"
+#set -g status-right "#[fg=colour69] #(hostname) |#[fg=colour160]♥ #[fg=colour69]#{battery_icon} #{battery_percentage}| %Y-%m-%d %H:%M"
+# set -g status-right "#[fg=colour69] #h |#[fg=colour160]♥ #[fg=colour69]#{battery_percentage}| %Y-%m-%d %H:%M"
+set -g status-right "#[fg=colour69] #S | #[fg=colour69]#{battery_percentage}#[fg=colour160]♥#[fg=colour69] | %Y-%m-%d %H:%M"
 
+#set -g status-right-length 150
+#set -g status-right '#[fg=colour69] #h | #[fg=colour160]♥ #[fg=colour69]#(acpi -b | cut -d" " -f4 | cut -d"%" -f1)% | %H:%M | %Y-%m-%d '
 
+run '~/.tmux/plugins/tpm/tpm'
 
 # git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # -- Reload tmux configuration: tmux source ~/.tmux.conf

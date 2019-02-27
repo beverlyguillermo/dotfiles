@@ -45,15 +45,17 @@ Plugin 'mustache/vim-mustache-handlebars'
 " less syntax
 Plugin 'groenewege/vim-less'
 " Pandoc
-Bundle 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc'
 " Vimroom / Writing
 Plugin 'mikewest/vimroom'
+" Elixir
+Plugin 'elixir-editors/vim-elixir'
 " Ruby associated bundles
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-endwise'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-endwise'
 
 Plugin 'gregsexton/MatchTag'
 Plugin 'SirVer/ultisnips'
@@ -194,7 +196,7 @@ if has('gui_running')
   endif
 
 colorscheme Tomorrow
-" colorscheme tango2
+" colorscheme xcode
 
 endif
 
@@ -303,6 +305,8 @@ let g:NERDTreeMapOpenSplit = 'i'
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeIgnore     = ['.DS_Store', '.git', '*.bak']
+let g:NERDTreeNodeDelimiter = "\u00a0"
+" let g:NERDTreeNodeDelimiter = "\x07"
 autocmd BufWinEnter * NERDTreeMirror
 
 nmap <silent> ,tb :TagbarToggle<cr>

@@ -1,44 +1,49 @@
-# ` is an interesting key for a prefix
-# set-option -g prefix C-a # similar to screen
-#set-option -g prefix `
-#unbind-key C-b
-#bind-key C-a last-window
-#bind-key ` last-window
-#bind-key a send-prefix
+set -g @continuum-restore 'on'
 
-# we might need ` at some point, allow switching
-# we can also send the prefix char with `-a
-#bind-key F11 set-option -g prefix C-a
-#bind-key F12 set-option -g prefix `
+# git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# -- Reload tmux configuration: tmux source ~/.tmux.conf
+# -- Install Plugins: prefix + I
+# Plugins
+set -g @plugins 'tmux-plugins/tpm'
 
-# 0 is too far from `
-#set -g base-index 1
-#set -g default-terminal "screen-256color"
-#set -g default-terminal "xterm-256color"
-#set -g default-terminal "xterm"
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @plugins 'tmux-plugins/tmux-sensible'
+#set -g @plugins 'tmux-plugins/tmux-battery'
 
-#set-option -g default-terminal "screen-256color"
-#set-option -g mouse-mode on
+# Initialize TMUX plugin manager
+run '~/.tmux/plugins/tpm/tpm'
 
-set-option -g mouse-select-pane on
-set-option -g status-keys vi
-set-option -g bell-action any
-set-option -g set-titles on
-set-option -g set-titles-string '#H:#S.#I.#P #W #T' # window number,program name,active (or not)
-set-option -g visual-bell on
-
-#set status bar
-set -g status-bg black
-set -g status-fg yellow
-#set -g status-left .#[fg=green]#H.
-#set-window-option -g window-status-current-format '#[bg=magenta,fg=white,bold]#I#[bg=magenta,fg=white]:#[fg=white]#W#[fg=dim]#F'
-set-window-option -g window-status-current-format '#[bg=blue,fg=white,bold]#I#[bg=blue,fg=white]:#[fg=white]#W#[fg=dim]#F'
-#set -g status-right '#[fg=green][#[fg=white]#T#[fg=green]][#[fg=blue]%Y-%m-%d #[fg=white]%H:%M#[default]#[fg=green]]'
-set -g status-right '#[fg=magenta]#(hostname) [#{battery_percentage}] [%Y-%m-%d %H:%M:%S]'
+set -g default-terminal "screen-256color"
 
 setw -g mode-keys vi
-setw -g mode-mouse on
+setw -g set-titles on
+setw -g set-titles-string '#H:#S.#I.#P #W #T' # window number,program name,active (or not)
+setw -g visual-bell on
+setw -g bell-action any
 setw -g monitor-activity on
+setw -g visual-activity on
+setw -g renumber-windows on
+setw -g mouse on
+
+# don't resize the screen if users are in different windows
+set -g aggressive-resize on
+
+# set status bar
+set -g status-justify left
+set -g status-bg black
+set -g status-fg white
+set -g status-interval 5
+setw -g window-status-format "#[fg=black]#[bg=colour7] #I #[fg=black]#[bg=colour15] #W "
+setw -g window-status-current-format "#[fg=colour8]#[bg=white] #I #[bg=colour69]#[fg=white] #W#F "
+setw -g window-status-current-bg black
+setw -g window-status-current-fg yellow
+setw -g window-status-current-attr bold
+setw -g window-status-bg black
+setw -g window-status-fg blue
+setw -g window-status-attr default
+set -g status-right '#[fg=magenta]#(hostname) [%Y-%m-%d %H:%M:%S]'
+
 
 bind e previous-window
 bind f next-window
@@ -49,18 +54,33 @@ bind - resize-pane -D 10
 bind < resize-pane -L 10
 bind > resize-pane -R 10
 
-
-set-option -g status-utf8 on
+set -g status-justify left
+set -g status-bg black
+set -g status-fg white
+set -g status-interval 5
+set -g status-position bottom
 
 set -g history-limit 4096
 
-# Plugins
-set -g @plugins 'tmux-plugins/tpm'
-#set -g @plugins 'tmux-plugins/tmux-sensible'
-set -g @plugins 'tmux-plugins/tmux-battery'
+
+bind P paste-buffer
+#tmux 2.3
+bind-key -t vi-copy 'v' begin-selection
+bind-key -t vi-copy 'y' copy-selection
+bind-key -t vi-copy 'r' rectangle-toggle
+
+# tmux 2.4+
+#bind-key -T copy-mode-vi v send-keys -X begin-selection
+#bind-key -T copy-mode-vi y send-keys -X copy-selection
+#bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
+
+#For those looking for a simple answer, just use prefix + :, then type in capture-pane -S -3000 + return (Replace 3000 with however many lines you'd like to save.) This copies those lines into a buffer.
+#
+#Then, to save the buffer to a file, just use prefix + : again, and type in save-buffer filename.txt + return, replacing filename with whatever you'd like.
+#
+#(By default prefix is ctrl + b.)
 
 # `+r reloads the configuration, handy
 # bind r source-file ~/.tmux.conf
+set -g @resurrect-capture-pane-contents 'on'
 
-# Initialize TMUX plugin manager
-run '~/.tmux/plugins/tpm/tpm'
