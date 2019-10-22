@@ -1,4 +1,6 @@
 .git
+_build/
+cover/
+coverage/
 *.log
-cover
-coverage
+*.beam

@@ -35,6 +35,7 @@ Plugin 'bling/vim-airline'
 Plugin 'sjl/gundo.vim'
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
+Plugin 'mileszs/ack.vim'
 "javascript syntax
 Plugin 'jelera/vim-javascript-syntax'
 " coffescript syntax
@@ -161,17 +162,17 @@ set list listchars=tab:»·,trail:·
 "hi CursorLine term=bold cterm=bold ctermbg=235 guibg=DarkGrey
 hi CursorLine cterm=bold ctermbg=235 guibg=DarkGrey
 hi CursorColumn ctermbg=235
-hi ColorColumn ctermbg=Black guibg=#2c2727
+hi ColorColumn ctermbg=DarkGray guibg=#2c2727
 let &colorcolumn="120,".join(range(120,999),",")
 "set the gui options the way I like
 
 let base16colorspace=256  " Access colors present in 256 colorspace
 
 
-" Dark Background
-"set background=dark
-
 if has('gui_running')
+
+  " Dark Background
+  " set background=dark
 
   set guioptions=ac
 
@@ -188,17 +189,16 @@ if has('gui_running')
   set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
 
   if has("gui_macvim")
-    set guifont=menlo:h12
+    set guifont=menlo:h14
   endif
 
   if has("gui_x11")
     set guifont=inconsolata:12`
   endif
 
-colorscheme material
-" colorscheme xcode
-highlight ColorColumn ctermbg=235 guibg=#2c2d27
-
+  colorscheme material
+  " colorscheme xcode
+  hi ColorColumn ctermbg=Black guibg=#2c2727
 endif
 
 " Set tag files
@@ -351,7 +351,7 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
   \ 'ctrl-v': 'vsplit' }
- 
+
 " Default fzf layout
 " - down / up / left / right
 " let g:fzf_layout = { 'down': '~40%' }

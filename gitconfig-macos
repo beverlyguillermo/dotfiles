@@ -1,8 +1,15 @@
 [diff]
   tool = araxis
+  # tool = opendiff
 
 [merge]
   tool = araxis
+  #tool = opendiff
+
+[branch]
+  sort = committerdate
+
+[blame]
 
 [color]
   ui = auto
@@ -33,12 +40,16 @@
   keepBackup = false
 
 [alias]
+  rh = reset --hard FETCH_HEAD
   co = checkout
-  st = stash -p
   # %h%x09%an%x09%ad%x09%s
-  lo = log --decorate --pretty=format:"%h%x09%ad%x09%an%x09%x09%s" --abbrev-commit --date=short
+  # lo = log --graph --decorate --pretty=format:"%h%x09%ad%x09%an%x09%Cgreen%D%x09%Creset%s" --abbrev-commit --date=short -100 --color
+  # lo = log --graph --decorate --pretty=format:"%h%x09%Creset%s^%Cblue%ad^%Cred%<(15,trunc)%an%Cgreen%d" --abbrev-commit --date=short -100 --color
+  # lo = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  lo = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-  #last = log --decorate --pretty=oneline --abbrev-commit --name-status HEAD^..HEAD
   last = show --color --decorate --oneline --word-diff=color
   lastb = show --color --decorate --oneline --name-status
+  # patch the log diff
+  bl = log -p -M --follow --stat --
