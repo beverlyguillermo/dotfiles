@@ -27,7 +27,7 @@ setw -g mode-keys vi
 # copying in osx
 set -g default-command "reattach-to-user-namespace -l /bin/bash"
 bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
-bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe "reattach-to-user-namespace pbcopy"
+bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
 # bind-key -T copy-mode-vi MouseDown1Pane select-pane send-keys -X clear-selection
 
 # Setup 'v' to begin selection, just like Vim
@@ -82,15 +82,11 @@ set -g status-position bottom
 # setw -g window-status-format '#[fg=black]#[bg=colour7] #I #[fg=black]#[bg=colour15] #(pwd="#{pane_current_path}"; echo ${pwd####*/})#F '
 # setw -g window-status-current-format '#[fg=colour196]#[bg=colour90] #I #[fg=colour7]#[bg=colour53] #(pwd="#{pane_current_path}"; echo ${pwd####*/}):#(cd #{pane_current_path}; git rev-parse --abbrev-ref HEAD)#F '
 set-option -g status-interval 1
+setw -g window-status-current-style bg=black,fg=yellow,bold
+setw -g window-status-style bg=black,fg=blue,default
 
 setw -g window-status-format "#[fg=black]#[bg=colour7] #I #[fg=black]#[bg=colour15] #W "
 setw -g window-status-current-format "#[fg=colour8]#[bg=white] #I #[bg=colour69]#[fg=white] #W#F "
-# setw -g window-status-current-bg black
-# setw -g window-status-current-fg yellow
-# setw -g window-status-current-attr bold
-# setw -g window-status-bg black
-# setw -g window-status-fg blue
-# setw -g window-status-attr default
 
 # Info left # https://devhints.io/tmux
 set -g status-left ''

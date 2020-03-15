@@ -1,10 +1,12 @@
 [diff]
-  tool = araxis
+  # tool = mvimdiff
   # tool = opendiff
+  tool = araxis
 
 [merge]
+  # tool = mvimdiff
+  # tool = opendiff
   tool = araxis
-  #tool = opendiff
 
 [branch]
   sort = committerdate
@@ -38,6 +40,9 @@
 [mergetool "mvimdiff"]
   cmd = mvimdiff \"$LOCAL\" \"$REMOTE\" \"$MERGED\" \"$BASE\"
   keepBackup = false
+
+[mergetool "araxis"]
+  path = /Applications/Araxis Merge.app/Contents/Utilities/compare
 
 [alias]
   rh = reset --hard FETCH_HEAD
