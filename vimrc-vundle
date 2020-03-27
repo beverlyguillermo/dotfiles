@@ -74,6 +74,7 @@ Plugin 'tpope/vim-surround' " automatic surrounding of cursor for chars
 Plugin 'tyru/open-browser.vim' " open uri in favorite browser
 Plugin 'vim-scripts/a.vim' " Switch  between source files and header files
 Plugin 'flazz/vim-colorschemes'
+Plugin 'arzg/vim-colors-xcode'
 
 call vundle#end()
 
@@ -188,14 +189,14 @@ if has('gui_running')
   set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
 
   if has("gui_macvim")
-    set guifont=Menlo:h14
+    set guifont=menlo:h14
   endif
 
   if has("gui_x11")
     set guifont=inconsolata:12`
   endif
 
-  colorscheme wwdc16
+  colorscheme xcodewwdc
   hi ColorColumn ctermbg=Black guibg=#2c2727
 endif
 

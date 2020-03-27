@@ -28,8 +28,6 @@
 
 [user]
   name = Beverly Guillermo
-  email = bguillermo@wombatsecurity.com
-	signingkey = BA5A58C12BF94D7AED0B8ED6583F727A34D27E97
 
 [apply]
   whitespace = nowarn
@@ -45,7 +43,8 @@
   path = /Applications/Araxis Merge.app/Contents/Utilities/compare
 
 [alias]
-  rh = reset --hard FETCH_HEAD
+  unstage = reset --hard FETCH_HEAD
+  difflast = diff HEAD^ HEAD
   co = checkout
   # %h%x09%an%x09%ad%x09%s
   # lo = log --graph --decorate --pretty=format:"%h%x09%ad%x09%an%x09%Cgreen%D%x09%Creset%s" --abbrev-commit --date=short -100 --color
@@ -58,3 +57,4 @@
   lastb = show --color --decorate --oneline --name-status
   # patch the log diff
   bl = log -p -M --follow --stat --
+  edit = ls-files -o -m --exclude-standard
