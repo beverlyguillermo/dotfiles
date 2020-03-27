@@ -10,6 +10,12 @@ if &term =~ '^screen'
   " tmux knows the extended mouse mode
   set ttymouse=xterm2
 endif
+" https://stackoverflow.com/questions/7000960/in-vim-why-doesnt-my-mouse-work-past-the-220th-column
+if has("mouse_sgr")
+    set ttymouse=sgr
+else
+    set ttymouse=xterm2
+end
 
 " Install https://github.com/junegunn/fzf and https://github.com/ggreer/the_silver_searcher
 set rtp+=~/.fzf
@@ -34,6 +40,7 @@ Plugin 'moll/vim-bbye' " Use Bdelete :Bwipeout
 Plugin 'nathanaelkane/vim-indent-guides' " Indentation guidline
 Plugin 'bling/vim-airline' " More info in vim statusline
 Plugin 'sjl/gundo.vim' " Visualize possible undos
+Plugin 'christoomey/vim-tmux-navigator' "Tmux and vim
 Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plugin 'junegunn/fzf.vim'
 Plugin 'mileszs/ack.vim'

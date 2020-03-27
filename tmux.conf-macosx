@@ -51,11 +51,18 @@ bind c new-window -c "#{pane_current_path}"
 # don't resize the screen if users are in different windows
 set -g aggressive-resize on
 
-# START MOUSE CONFIGURATION
-# Make mouse useful in copy mode
+# START mouse configuration
+# make mouse useful in copy mode
 setw -g mouse on
+# disable/enable mouse for vim
+# toggle mouse on with ^b m
+bind A set -g mouse on \;\
+  display 'mouse: on'
+# toggle mouse off with ^b m
+bind a set -g mouse off \;\
+  display 'mouse: off'
 
-# Allow xterm titles in terminal window, terminal scrolling with scrollbar, and setting overrides of C-Up, C-Down, C-Left, C-Right
+# allow xterm titles in terminal window, terminal scrolling with scrollbar, and setting overrides of c-up, c-down, c-left, c-right
 # (commented out because it disables cursor navigation in vim)
 #set -g terminal-overrides "xterm*:XT:smcup@:rmcup@:kUP5=\eOA:kDN5=\eOB:kLFT5=\eOD:kRIT5=\eOC"
 # Scroll History
@@ -97,8 +104,6 @@ set -g status-right "#[fg=colour69] #S | #[fg=colour69]#{battery_percentage}#[fg
 #set -g status-right-length 150
 #set -g status-right '#[fg=colour69] #h | #[fg=colour160]♥ #[fg=colour69]#(acpi -b | cut -d" " -f4 | cut -d"%" -f1)% | %H:%M | %Y-%m-%d '
 
-run '~/.tmux/plugins/tpm/tpm'
-
 # git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # -- Reload tmux configuration: tmux source ~/.tmux.conf
 # -- Install Plugins: prefix + I
@@ -108,6 +113,7 @@ set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
 #set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'tmux-plugins/tmux-battery-osx'
+set -g @plugin 'christoomey/vim-tmux-navigator'
 
 run '~/.tmux/plugins/tpm/tpm'
 
