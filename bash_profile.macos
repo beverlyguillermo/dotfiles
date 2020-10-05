@@ -104,6 +104,10 @@ if [ -d "$HOME/.pyenv" ] ; then
   fi
 fi
 
+if [ -x "$(command -v asdf)" ]; then
+  source $(brew --prefix asdf)/asdf.sh >&2
+fi
+
 source ~/.dotfiles/git-completion.bash
 
 #if brew ls --versions myformula > /dev/null; then
