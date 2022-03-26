@@ -1,10 +1,5 @@
 .DS_Store
-vim/backup
-vim/temp
-vim/.netrwhist
-vim/bundle
-vim/tmp
-vim/tmp/.*~
+vim/*
 tmux/plugins
 tmux/resurrect
 *.o

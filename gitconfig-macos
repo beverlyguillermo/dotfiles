@@ -28,6 +28,7 @@
 
 [user]
   name = Beverly Guillermo
+  email = beverly.guillermo@gmail.com
 
 [apply]
   whitespace = nowarn
@@ -58,3 +59,6 @@
   # patch the log diff
   bl = log -p -M --follow --stat --
   edit = ls-files -o -m --exclude-standard
+
+[pull]
+  rebase = true
