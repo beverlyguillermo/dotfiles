@@ -27,8 +27,8 @@ format = " took [$duration]($style)"
 disabled = false
 
 [directory]
-format = "[$path]($style)[$lock_symbol]($lock_style) "
-truncation_length = 10
+format = "[$path]($style)[$lock_symbol]($lock_style)"
+truncation_length = 0
 truncate_to_repo = true
 style = "bold italic #87A752"
 
@@ -38,7 +38,7 @@ format = "on [$symbol$account(@$domain):($project) $active]($style) "
 
 [git_branch]
 format = " [$symbol$branch]($style) "
-symbol = "🍣 "
+symbol = " "
 style = "bold yellow"
 
 [git_commit]
@@ -69,10 +69,9 @@ trim_at = ".local"
 style = "bold dimmed white"
 disabled = false
 
-[julia]
-format = "[$symbol$version]($style) "
-symbol = "ஃ "
-style = "bold green"
+[kubernetes]
+format = 'on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
+disabled = false
 
 [memory_usage]
 format = "$symbol[${ram}( | ${swap})]($style) "
@@ -83,18 +82,23 @@ disabled = false
 [package]
 disabled = true
 
-[python]
-format = "[$symbol$version]($style) "
-style = "bold green"
+# [python]
+# format = "[$symbol$version]($style) "
+# style = "bold green"
 
-[rust]
-format = "[$symbol$version]($style) "
-style = "bold green"
+[shell]
+fish_indicator = ""
+disabled = false
+
+# [rust]
+# format = "[$symbol$version]($style) "
+# style = "bold green"
 
 [time]
-time_format = "%T"
 format = "🕙 $time($style) "
 style = "bright-white"
+time_format = "%I:%M:%S%P"
+use_12hr = true
 disabled = false
 
 [username]
