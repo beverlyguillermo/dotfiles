@@ -1,81 +1,90 @@
 " Autoreload .vimrc
 autocmd! bufwritepost .vimrc source %
 
-" Settings required to set up Vundle, these two lines at the top
-set nocompatible               " be iMproved
-filetype off                   " required!
+" plugins
+let need_to_install_plugins = 0
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    let need_to_install_plugins = 1
+endif
 
-" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/vundle
+call plug#begin()
 
-set rtp+=~/.vim/bundle/vundle/
-
-call vundle#begin()
-" let Vundle manage Vundle
-" required!
-Plugin 'gmarik/vundle'
-" Your Bundles
-Plugin 'scrooloose/syntastic' " Language syntax checking
-Plugin 'scrooloose/nerdtree'  " File
-Plugin 'ervandew/supertab'    " Code completion
-Plugin 'majutsushi/tagbar'    " view tags of current file in view
-Plugin 'tpope/vim-repeat'     " Keep repeat command with .
-Plugin 'tpope/vim-fugitive'   " Git commands
-Plugin 'geoffharcourt/vim-matchit' " Match start/end of blocks
-Plugin 'jeetsukumaran/vim-buffergator' "Buffer navigator
-Plugin 'moll/vim-bbye' " Use Bdelete :Bwipeout
-Plugin 'nathanaelkane/vim-indent-guides' " Indentation guidline
-Plugin 'bling/vim-airline' " More info in vim statusline
-Plugin 'sjl/gundo.vim' " Visualize possible undos
-Plugin 'christoomey/vim-tmux-navigator' "Tmux and vim
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plugin 'junegunn/fzf.vim'
-Plugin 'mileszs/ack.vim'
+Plug 'scrooloose/syntastic' " Language syntax checking
+Plug 'scrooloose/nerdtree'  " File
+Plug 'ervandew/supertab'    " Code completion
+Plug 'majutsushi/tagbar'    " view tags of current file in view
+Plug 'tpope/vim-repeat'     " Keep repeat command with .
+Plug 'tpope/vim-fugitive'   " Git commands
+Plug 'geoffharcourt/vim-matchit' " Match start/end of blocks
+Plug 'jeetsukumaran/vim-buffergator' "Buffer navigator
+Plug 'moll/vim-bbye' " Use Bdelete :Bwipeout
+Plug 'nathanaelkane/vim-indent-guides' " Indentation guidline
+Plug 'bling/vim-airline' " More info in vim statusline
+Plug 'sjl/gundo.vim' " Visualize possible undos
+Plug 'christoomey/vim-tmux-navigator' "Tmux and vim
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
 
 "javascript syntax
-Plugin 'jelera/vim-javascript-syntax'
+Plug 'jelera/vim-javascript-syntax'
 " coffescript syntax
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'mtscout6/vim-cjsx' " coffeescript react jsx
+Plug 'kchmck/vim-coffee-script'
+Plug 'mtscout6/vim-cjsx' " coffeescript react jsx
 " html5 syntax
-Plugin 'othree/html5.vim'
-Plugin 'mustache/vim-mustache-handlebars'
+Plug 'othree/html5.vim'
+Plug 'mustache/vim-mustache-handlebars'
 " less syntax
-Plugin 'groenewege/vim-less'
+Plug 'groenewege/vim-less'
 " Pandoc
-Plugin 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc'
 " Vimroom / Writing
-Plugin 'mikewest/vimroom'
+Plug 'mikewest/vimroom'
 " Elixir
-Plugin 'elixir-editors/vim-elixir'
+Plug 'elixir-editors/vim-elixir'
 " Go
-Plugin 'fatih/vim-go'
+Plug 'fatih/vim-go'
 " Ruby associated bundles
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-endwise'
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-endwise'
 
-Plugin 'gregsexton/MatchTag' " Match tags for html
-" Plugin 'SirVer/ultisnips' " Snippets
-" Plugin 'honza/vim-snippets' " helper to Snippets
-Plugin 'elzr/vim-json' " better json highlighting
-Plugin 'mhinz/vim-signify' " shows diff changes as you edit
-Plugin 'plasticboy/vim-markdown'
-Plugin 'tpope/vim-sleuth' " automatic shiftwidths, expandtab
-Plugin 'tpope/vim-surround' " automatic surrounding of cursor for chars
-Plugin 'tyru/open-browser.vim' " open uri in favorite browser
-Plugin 'vim-scripts/a.vim' " Switch  between source files and header files
-Plugin 'flazz/vim-colorschemes'
-Plugin 'arzg/vim-colors-xcode'
+Plug 'gregsexton/MatchTag' " Match tags for html
+" Plug 'SirVer/ultisnips' " Snippets
+" Plug 'honza/vim-snippets' " helper to Snippets
+Plug 'elzr/vim-json' " better json highlighting
+Plug 'mhinz/vim-signify' " shows diff changes as you edit
+Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-sleuth' " automatic shiftwidths, expandtab
+Plug 'tpope/vim-surround' " automatic surrounding of cursor for chars
+Plug 'tyru/open-browser.vim' " open uri in favorite browser
+Plug 'vim-scripts/a.vim' " Switch  between source files and header files
+Plug 'flazz/vim-colorschemes'
+Plug 'arzg/vim-colors-xcode'
 
-call vundle#end()
+call plug#end()
+
+filetype plugin indent on
+syntax on
+
+if need_to_install_plugins == 1
+    echo "Installing plugins..."
+    silent! PlugInstall
+    echo "Done!"
+    q
+endif
 
 set mouse=a
 if &term =~ '^screen'
   " tmux knows the extended mouse mode
   set ttymouse=xterm2
 endif
+
 " https://stackoverflow.com/questions/7000960/in-vim-why-doesnt-my-mouse-work-past-the-220th-column
 if has("mouse_sgr")
     set ttymouse=sgr
@@ -86,7 +95,6 @@ end
 " Install https://github.com/junegunn/fzf and https://github.com/ggreer/the_silver_searcher
 set rtp+=~/.fzf
 
-syntax on
 " Always put status line at the 2nd to last line
 set laststatus=2
 " Modifying status line look
@@ -216,7 +224,6 @@ set tags=./.tags,.tags,./.gemtags,.gemtags,./gems.tags,gem.tags,./tags,tags;
 " These things start comment lines
 set comments=sl:/*,mb:\ *,ex:\ */,O://,b:#,:%,:XCOMM,n:>,fb:-
 
-filetype plugin indent on     " required!
 autocmd FileType * setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
