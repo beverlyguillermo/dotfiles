@@ -1,0 +1,9 @@
+alias ls='gls --color=auto'
+
+if type -q asdf
+  source (brew --prefix asdf)/asdf.fish
+end
+
+if type -q starship
+  starship init fish | source
+end
