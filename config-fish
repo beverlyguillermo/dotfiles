@@ -1,4 +1,5 @@
-alias ls='gls --color=auto'
+alias ls='ls -G --color=auto'
+set fish_greeting
 
 if type -q asdf
   source (brew --prefix asdf)/asdf.fish

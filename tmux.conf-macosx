@@ -13,6 +13,7 @@
 
 # Set the default terminal mode to 256color mode
 set -g default-terminal "xterm-256color"
+# set -g default-terminal "screen-256color"
 
 # # enable activity alerts
 setw -g monitor-activity on
@@ -26,7 +27,7 @@ setw -g mode-keys vi
 
 # copying in osx
 # brew install reattach-to-user-namespace
-set -g default-command "reattach-to-user-namespace -l /bin/bash"
+set -g default-command "reattach-to-user-namespace -l /opt/homebrew/bin/fish"
 bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
 bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
 # bind-key -T copy-mode-vi MouseDown1Pane select-pane send-keys -X clear-selection
