@@ -88,8 +88,7 @@ disabled = true
 # style = "bold green"
 
 [shell]
-zsh_indicator = "󰊠"
-fish_indicator = "󰈺"
+fish_indicator = ""
 disabled = false
 
 # [rust]
