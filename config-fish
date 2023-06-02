@@ -2,7 +2,7 @@ alias ls='ls -G --color=auto'
 set fish_greeting
 
 if type -q asdf
-  source (brew --prefix asdf)/asdf.fish
+  source (brew --prefix asdf)/libexec/asdf.fish
 end
 
 if type -q starship
