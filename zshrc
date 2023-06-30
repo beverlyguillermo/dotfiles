@@ -14,6 +14,6 @@ if command -v direnv &>/dev/null; then
 fi
 
 # https://asdf-vm.com
-if command -v asdf &>/dev/null; then
+if [ -f $HOME/.asdf/asdf.sh ]; then
   . $HOME/.asdf/asdf.sh
 fi
