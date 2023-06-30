@@ -12,7 +12,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#begin()
 " let Vundle manage Vundle
 " required!
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 " Your Bundles
 Plugin 'scrooloose/syntastic' " Language syntax checking
 Plugin 'scrooloose/nerdtree'  " File
