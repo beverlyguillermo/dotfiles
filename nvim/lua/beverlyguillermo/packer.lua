@@ -70,4 +70,8 @@ return require('packer').startup(function(use)
 	  }
   }
 
+  -- ruby-stuff
+  use 'tpope/vim-bundler'
+  use 'tpope/vim-rails'
+
 end)

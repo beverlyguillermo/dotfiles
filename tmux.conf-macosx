@@ -11,6 +11,9 @@
 # set -g @plugin 'tmux-plugins/tmux-battery-osx'
 # run '~/.tmux/plugins/tpm/tpm'
 
+set-option -g renumber-windows on
+set-option -ga terminal-overrides ',*:enacs@:smacs@:rmacs@:acsc@'
+
 # Set the default terminal mode to 256color mode
 set -g default-terminal "xterm-256color"
 # set -g default-terminal "screen-256color"
@@ -19,8 +22,6 @@ set -g default-terminal "xterm-256color"
 setw -g monitor-activity on
 set -g visual-activity on
 
-set-option -g renumber-windows on
-set-option -ga terminal-overrides ',*:enacs@:smacs@:rmacs@:acsc@'
 
 # turn on vi mode for movement
 setw -g mode-keys vi
@@ -32,17 +33,6 @@ set -g default-command /opt/homebrew/bin/fish
 set -g default-shell /opt/homebrew/bin/fish
 bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
 bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
-# bind-key -T copy-mode-vi MouseDown1Pane select-pane send-keys -X clear-selection
-
-# Setup 'v' to begin selection, just like Vim
-#bind-key -T vi-copy v begin-selection
-
-# Setup 'y' to yank (copy), just like Vim
-#bind-key -T vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
-
-# Update default binding of `Enter` to also use copy-pipe
-#unbind -T vi-copy Enter
-#bind-key -T vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
 
 # Bind ']' to use pbbaste
 bind ] run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"
@@ -74,7 +64,7 @@ set -g history-limit 30000
 # Set ability to capture on start and restore on exit window data when running an application
 setw -g alternate-screen on
 # Lower escape timing from 500ms to 50ms for quicker response to scroll-buffer access.
-set -s escape-time 50
+set -s escape-time 0
 # END MOUSE CONFIGURATION
 
 # Status Line

@@ -28,9 +28,6 @@ map("n", "<leader>Y", [["+Y]])
 -- deleting
 map({"n", "v"}, "<leader>d", [["_d]])
 
--- switching tmux stuff
-map("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-
 -- format per lsp
 map("n", "<leader>f", vim.lsp.buf.format)
 

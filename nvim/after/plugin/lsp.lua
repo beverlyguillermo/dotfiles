@@ -8,3 +8,16 @@ end)
 
 -- here you can setup the language servers
 
+local solargraph_opts = {
+  cmd = {
+    "asdf",
+    "exec",
+    "solargraph",
+    "stdio"
+  }
+--   },
+--  capabilities = capabilities,
+--  on_init = on_init,
+}
+
+require('lspconfig').solargraph.setup(solargraph_opts)
