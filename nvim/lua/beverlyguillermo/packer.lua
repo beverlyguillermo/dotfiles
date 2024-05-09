@@ -26,8 +26,19 @@ return require('packer').startup(function(use)
 	'catppuccin/nvim',
 	as = 'catppuccin',
 	config = function()
-		vim.cmd('colorscheme catppuccin-macchiato')
+		vim.cmd('colorscheme catppuccin')
 	end
+  }
+
+  use {
+  "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    requires = { 
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+    }
   }
 
   -- buffer management
@@ -49,8 +60,8 @@ return require('packer').startup(function(use)
 	  branch = 'v3.x',
 	  requires = {
 		  --- Uncomment the two plugins below if you want to manage the language servers from neovim
-		  {'williamboman/mason.nvim'},
-		  {'williamboman/mason-lspconfig.nvim'},
+		  -- {'williamboman/mason.nvim'},
+		  -- {'williamboman/mason-lspconfig.nvim'},
 
 		  {'neovim/nvim-lspconfig'},
 		  {'hrsh7th/nvim-cmp'},

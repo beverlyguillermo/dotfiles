@@ -1,3 +1,5 @@
+vim.g.mapleader = ","
+
 local map = vim.keymap.set
 
 -- open ex file navigation
