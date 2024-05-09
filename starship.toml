@@ -64,7 +64,7 @@ style = "bright-white"
 format = "$all_status$ahead_behind"
 
 [hostname]
-ssh_only = false
+ssh_only = true
 format = "<[$hostname]($style)> "
 trim_at = ".local"
 style = "bold dimmed white"
@@ -97,7 +97,8 @@ disabled = false
 # style = "bold green"
 
 [time]
-format = "🕙 $time($style) "
+# format = "🕙 $time($style) "
+format = "$time($style) "
 style = "bright-white"
 time_format = "%I:%M:%S%P"
 use_12hr = true
@@ -105,5 +106,4 @@ disabled = false
 
 [username]
 style_user = "bold dimmed blue"
-show_always = true
-
+show_always = false

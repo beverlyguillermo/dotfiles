@@ -1,10 +1,50 @@
 alias ls='ls -G --color=auto'
 set fish_greeting
 
-if type -q asdf
-  source (brew --prefix asdf)/asdf.fish
-end
+# if status is-interactive
+#   echo shell is interactive
+# else
+#   echo shell is not interactive
+#   ps -wfp %self
+# end
 
-if type -q starship
-  starship init fish | source
+if status is-interactive
+  if test -d /opt/homebrew # MacOS
+    set -gx HOMEBREW_PREFIX "/opt/homebrew"
+    set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
+    set -gx HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX/homebrew"
+    fish_add_path -mgpP "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin";
+  end
+
+
+  if type -q asdf
+    if not test -f ~/.asdf/asdf.fish
+      # source (brew --prefix asdf)/libexec/asdf.fish # commented out because of IDE terminal issues
+      if test -z $ASDF_DIR
+          set ASDF_DIR (builtin realpath --no-symlinks (dirname (status filename)))
+      end
+      set --export ASDF_DIR $ASDF_DIR
+
+      set -l _asdf_bin "$ASDF_DIR/bin"
+      if test -z $ASDF_DATA_DIR
+          set _asdf_shims "$HOME/.asdf/shims"
+      else
+          set _asdf_shims "$ASDF_DATA_DIR/shims"
+      end
+
+      fish_add_path -mgpP $_asdf_bin
+      fish_add_path -mgpP $_asdf_shims
+
+      set --erase _asdf_bin
+      set --erase _asdf_shims
+    end
+  end
+
+  if type -q starship
+    starship init fish | source
+  end
+
+  if test -d $HOME/.bin
+    fish_add_path -mp $HOME/.bin
+  end
 end

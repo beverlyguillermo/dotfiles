@@ -1,8 +1,8 @@
 [diff]
-	tool = araxis
+  colorMoved = default
 
 [merge]
-  tool = araxis
+  conflictstyle = diff3
 
 [color]
   ui = auto
@@ -13,6 +13,26 @@
 [core]
   excludesfile = ~/.gitignore
   editor = vim
+  pager = delta
+
+[delta]
+  features = decorations
+  navigate = true
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
+
+[interactive]
+  diffFilter = delta --color-only --features=interactive
 
 [svn]
   rmdir = true
@@ -34,3 +54,8 @@
 [alias]
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+
+[commit]
+  gpgSign = true
+[gpg]
+  format = ssh
