@@ -25,15 +25,15 @@ Plug 'nathanaelkane/vim-indent-guides' " Indentation guidline
 Plug 'bling/vim-airline' " More info in vim statusline
 Plug 'sjl/gundo.vim' " Visualize possible undos
 Plug 'christoomey/vim-tmux-navigator' "Tmux and vim
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 
 "javascript syntax
 Plug 'jelera/vim-javascript-syntax'
 " coffescript syntax
-Plug 'kchmck/vim-coffee-script'
-Plug 'mtscout6/vim-cjsx' " coffeescript react jsx
+" Plug 'kchmck/vim-coffee-script'
+" Plug 'mtscout6/vim-cjsx' " coffeescript react jsx
 " html5 syntax
 Plug 'othree/html5.vim'
 Plug 'mustache/vim-mustache-handlebars'
@@ -64,8 +64,8 @@ Plug 'tpope/vim-sleuth' " automatic shiftwidths, expandtab
 Plug 'tpope/vim-surround' " automatic surrounding of cursor for chars
 Plug 'tyru/open-browser.vim' " open uri in favorite browser
 Plug 'vim-scripts/a.vim' " Switch  between source files and header files
-Plug 'flazz/vim-colorschemes'
-Plug 'arzg/vim-colors-xcode'
+" Plug 'flazz/vim-colorschemes'
+" Plug 'arzg/vim-colors-xcode'
 
 call plug#end()
 
@@ -159,12 +159,15 @@ set ff=unix
 "set timeoutlen=500
 "set textwidth=79
 "set formatoptions=qrn1
+set showmatch
 
 " Autocompletion for commands
 set wildmenu
 set wildmode=list:longest,full
 set lazyredraw
 set backspace=2
+set hlsearch
+
 " Show trailing white space
 set list
 
@@ -176,7 +179,7 @@ set list listchars=tab:»·,trail:·
 
 " http://vim.wikia.com/wiki/Xterm256_color_names_for_console_Vim
 "hi CursorLine term=bold cterm=bold ctermbg=235 guibg=DarkGrey
-hi CursorLine cterm=bold ctermbg=235 guibg=DarkGrey
+hi CursorLine cterm=bold ctermbg=black guibg=black
 hi CursorColumn ctermbg=235
 hi ColorColumn ctermbg=DarkGray guibg=#2c2727
 let &colorcolumn="120,".join(range(120,999),",")
@@ -187,7 +190,11 @@ let base16colorspace=256  " Access colors present in 256 colorspace
 let &t_SI="\033[4 q" " start insert mode
 let &t_EI="\033[1 q" " end insert mode
 
+set termguicolors
+
 if has('gui_running')
+
+  set t_Co=256
 
   " Dark Background
   " set background=dark
@@ -214,8 +221,8 @@ if has('gui_running')
     set guifont=inconsolata:12`
   endif
 
-  colorscheme onedark
-  hi ColorColumn ctermbg=Black guibg=#2c2727
+  " colorscheme onedark
+  " hi ColorColumn ctermbg=Black guibg=#2c2727
 endif
 
 " Set tag files
@@ -243,8 +250,9 @@ set completeopt=longest,menuone " improve completion
 " inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " Remove trailing white space
-autocmd BufRead * silent! %s/[\r \t]\+$//
-autocmd BufNewFile,BufEnter *.rb :%s/[ \t\r]\+$//e set ai sw=2 ts=4 sta et ff=unix
+" autocmd BufRead * silent! %s/[\r \t]\+$//e
+autocmd BufRead,BufNewFile,BufEnter * silent! %s/[ \t\r]\+$//e
+autocmd BufNewFile,BufEnter *.rb set ai sw=2 ts=4 sta et ff=unix
 autocmd BufNewFile,BufEnter *.py set ai sw=4 ts=4 sta et fo=croql ff=unix
 augroup filetypedetect
   au BufNewFile,BufRead *.html set filetype=html
@@ -252,6 +260,7 @@ augroup filetypedetect
   au BufNewFile,BufRead *.erb  set filetype=eruby.ruby.html
   au BufNewFile,BufRead *.js   set filetype=javascript
   au BufNewFile,BufRead *.coffeescript set filetype=javascript.coffeescript
+  au BufNewFile,BufRead *.ts set filetype=javascript.typescript
 augroup end
 
 " Remove highlight and do escape
@@ -289,8 +298,8 @@ noremap <silent> ,cl :wincmd l<CR>:close<CR>
 noremap <silent> ,cw :cclose<CR>
 noremap <silent> ,bd :bd<CR>
 noremap <silent> ,bda :bufdo bd<CR>
-nnoremap <C-Up> gT
-nnoremap <C-Down> gt
+" nnoremap <C-Up> gT
+" nnoremap <C-Down> gt
 
 " Highlight all instances of the current word under the cursor
 nmap <silent> ^ :setl hls<CR>:let @/="<C-r><C-w>"<CR>
