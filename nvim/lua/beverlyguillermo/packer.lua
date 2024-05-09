@@ -26,7 +26,7 @@ return require('packer').startup(function(use)
 	'catppuccin/nvim',
 	as = 'catppuccin',
 	config = function()
-		vim.cmd('colorscheme catppuccin')
+		vim.cmd('colorscheme catppuccin-macchiato')
 	end
   }
 
