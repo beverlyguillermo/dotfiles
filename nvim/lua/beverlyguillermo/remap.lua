@@ -19,13 +19,13 @@ map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
 -- keep same content as paste
-map("x", "<leader>p", [["_dP]])
+map("x", "<leader>P", [["_dP]])
 
--- yanking to system clipboard
+-- yanking also to system clipboard  
 map({"n", "v"}, "<leader>y", [["+y]])
 map("n", "<leader>Y", [["+Y]])
 
--- deleting
+-- deleting keep previous content in clipboard
 map({"n", "v"}, "<leader>d", [["_d]])
 
 -- format per lsp
