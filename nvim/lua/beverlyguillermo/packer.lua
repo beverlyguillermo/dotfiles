@@ -23,14 +23,6 @@ return require('packer').startup(function(use)
   }
 
   use {
-	'catppuccin/nvim',
-	as = 'catppuccin',
-	config = function()
-		vim.cmd('colorscheme catppuccin')
-	end
-  }
-
-  use {
   "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     requires = { 
@@ -40,6 +32,15 @@ return require('packer').startup(function(use)
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     }
   }
+
+  -- status bar
+  use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+
+  -- colors
+  use('folke/tokyonight.nvim')
 
   -- buffer management
   use {
