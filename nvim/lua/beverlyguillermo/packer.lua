@@ -6,14 +6,17 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- helpful utilities for nvim
   use 'nvim-lua/plenary.nvim'
 
+  -- searching for things, also installed ripgrep
   use {
 	  'nvim-telescope/telescope.nvim', tag = '0.1.6',
 	  -- or                            , branch = '0.1.x',
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+  -- language stuff 
   use {
 	  'nvim-treesitter/nvim-treesitter',
 	  run = function() 
@@ -22,15 +25,16 @@ return require('packer').startup(function(use)
 	  end
   }
 
+  -- project tree
   use {
-  "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    requires = { 
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-    }
+      "nvim-neo-tree/neo-tree.nvim",
+      branch = "v3.x",
+      requires = { 
+          "nvim-lua/plenary.nvim",
+          "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+          "MunifTanjim/nui.nvim",
+          -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+      }
   }
 
   -- status bar
@@ -54,6 +58,7 @@ return require('packer').startup(function(use)
 
   -- git
   use 'tpope/vim-fugitive'
+  use 'mhinz/vim-signify'
 
   -- lsp
   use {
@@ -71,7 +76,7 @@ return require('packer').startup(function(use)
 	  }
   }
 
-  -- ruby-stuff
+  -- ruby-rails-stuff
   use 'tpope/vim-bundler'
   use 'tpope/vim-rails'
 
