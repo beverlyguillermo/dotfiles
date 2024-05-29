@@ -1,39 +1,41 @@
-vim.opt.guicursor = ""
+local opt = vim.opt
 
-vim.opt.number = true
+opt.guicursor = ""
 
-vim.opt.listchars = {
+opt.number = true
+
+opt.listchars = {
     -- eol = "↵",
     tab = "»·",
     -- lead = "·",
     trail = "·"
 }
-vim.opt.list = true
+opt.list = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
 
-vim.opt.smartindent = true
+opt.smartindent = true
 
-vim.opt.wrap = false
+opt.wrap = false
 
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = "/tmp/beverlyguillermo/undodir"
-vim.opt.undofile = true
+opt.swapfile = false
+opt.backup = false
+opt.undodir = "/tmp/beverlyguillermo/undodir"
+opt.undofile = true
 
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
+opt.hlsearch = false
+opt.incsearch = true
 
 
-vim.opt.termguicolors = true
+opt.termguicolors = true
+opt.colorcolumn = "120"
 
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
+opt.scrolloff = 8
+opt.signcolumn = "yes"
+opt.isfname:append("@-@")
 
-vim.opt.updatetime = 50
+opt.updatetime = 50
 
-vim.opt.colorcolumn = "120"
