@@ -2,6 +2,13 @@ vim.opt.guicursor = ""
 
 vim.opt.nu = true
 
+vim.opt.listchars = {
+    -- eol = "↵",
+    tab = "»·",
+    -- lead = "·",
+    trail = "·"
+}
+vim.opt.list = true
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4

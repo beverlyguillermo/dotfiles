@@ -1,5 +1,7 @@
 # Inserts a blank line between shell prompts
 add_newline = false
+# timeout for commands executed by starship
+command_timeout = 600
 
 [aws]
 format = 'on [$symbol($profile )(\($region\) )]($style)'
