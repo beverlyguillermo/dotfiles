@@ -1,6 +1,6 @@
 " Autoreload .vimrc
 autocmd! bufwritepost .vimrc source %
-
+set ai sta et
 " plugins
 let need_to_install_plugins = 0
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -113,7 +113,7 @@ set directory=/tmp/beverlyguillermo
 set number
 
 " clipboard
-set clipboard=unnamed
+" set clipboard=unnamed
 
 " tabs
 set tabstop=2
@@ -214,7 +214,7 @@ if has('gui_running')
     set guifont=inconsolata:12`
   endif
 
-  colorscheme onedark
+  " colorscheme onedark
   hi ColorColumn ctermbg=Black guibg=#2c2727
 endif
 
@@ -244,7 +244,8 @@ set completeopt=longest,menuone " improve completion
 
 " Remove trailing white space
 autocmd BufRead * silent! %s/[\r \t]\+$//
-autocmd BufNewFile,BufEnter *.rb :%s/[ \t\r]\+$//e set ai sw=2 ts=4 sta et ff=unix
+autocmd BufNewFile,BufEnter *.rb :%s/[ \t\r]\+$//e
+autocmd BufNewFile,BufEnter *.rb set ai sw=2 ts=4 sta et ff=unix
 autocmd BufNewFile,BufEnter *.py set ai sw=4 ts=4 sta et fo=croql ff=unix
 augroup filetypedetect
   au BufNewFile,BufRead *.html set filetype=html

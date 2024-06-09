@@ -83,17 +83,18 @@ disabled = false
 [package]
 disabled = true
 
-# [python]
-# format = "[$symbol$version]($style) "
-# style = "bold green"
+[python]
+format = "[$symbol$version]($style) "
+style = "bold green"
 
 [shell]
-fish_indicator = ""
+# fish_indicator = ""
+fish_indicator = ""
 disabled = false
 
-# [rust]
-# format = "[$symbol$version]($style) "
-# style = "bold green"
+[rust]
+format = "[$symbol$version]($style) "
+style = "bold green"
 
 [time]
 format = "🕙 $time($style) "

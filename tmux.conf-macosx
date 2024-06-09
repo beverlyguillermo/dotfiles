@@ -85,7 +85,7 @@ set -g status-interval 5
 # # Center the window list
 #set -g status-justify centre
 #set -g status-position top
-set -g status-position bottom
+set -g status-position top
 
 # Window status
 # setw -g window-status-format '#[fg=black]#[bg=colour7] #I #[fg=black]#[bg=colour15] #(pwd="#{pane_current_path}"; echo ${pwd####*/})#F '
