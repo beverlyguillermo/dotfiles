@@ -80,3 +80,5 @@
   rebase = true
 [gpg]
   format = ssh
+[commit]
+  gpgsign = true
