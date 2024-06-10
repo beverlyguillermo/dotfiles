@@ -1,9 +1,11 @@
 [diff]
+  colorMoved = default
   # tool = mvimdiff
   # tool = opendiff
   tool = araxis
 
 [merge]
+  conflictstyle = diff3
   # tool = mvimdiff
   # tool = opendiff
   tool = araxis
@@ -22,6 +24,15 @@
 [core]
   excludesfile = ~/.gitignore
   editor = vim
+  # pager = delta
+
+[delta]
+  line-numbers = true
+  navigate = true    # use n and N to move between diff sections
+  side-by-side = true
+
+[interactive]
+  diffFilter = delta --color-only
 
 [svn]
   rmdir = true
