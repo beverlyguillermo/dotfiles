@@ -1,3 +1,7 @@
+[diff "lockb"]
+  textconv = bun
+  binary = true
+
 [diff]
   colorMoved = default
   # tool = mvimdiff
@@ -40,6 +44,7 @@
 [user]
   name = Beverly Guillermo
   email = beverly.guillermo@gmail.com
+  signingkey = /Users/beverlyguillermo/.ssh/id_ed25519.pub
 
 [apply]
   whitespace = nowarn
@@ -73,3 +78,5 @@
 
 [pull]
   rebase = true
+[gpg]
+  format = ssh
