@@ -1,13 +1,6 @@
 alias ls='ls -G --color=auto'
 set fish_greeting
 
-# if status is-interactive
-#   echo shell is interactive
-# else
-#   echo shell is not interactive
-#   ps -wfp %self
-# end
-
 if status is-interactive
   if test -d /opt/homebrew # MacOS
     set -gx HOMEBREW_PREFIX "/opt/homebrew"

@@ -1,6 +1,6 @@
 " Autoreload .vimrc
 autocmd! bufwritepost .vimrc source %
-
+set ai sta et
 " plugins
 let need_to_install_plugins = 0
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -113,7 +113,7 @@ set directory=/tmp/beverlyguillermo
 set number
 
 " clipboard
-set clipboard=unnamed
+" set clipboard=unnamed
 
 " tabs
 set tabstop=2
@@ -222,7 +222,7 @@ if has('gui_running')
   endif
 
   " colorscheme onedark
-  " hi ColorColumn ctermbg=Black guibg=#2c2727
+  hi ColorColumn ctermbg=Black guibg=#2c2727
 endif
 
 " Set tag files
@@ -250,9 +250,18 @@ set completeopt=longest,menuone " improve completion
 " inoremap <expr> <M-,> pumvisible() ? '<C-n>' : \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
 " Remove trailing white space
+<<<<<<< HEAD
 " autocmd BufRead * silent! %s/[\r \t]\+$//e
 autocmd BufRead,BufNewFile,BufEnter * silent! %s/[ \t\r]\+$//e
 autocmd BufNewFile,BufEnter *.rb set ai sw=2 ts=4 sta et ff=unix
+||||||| fcf1b00
+autocmd BufRead * silent! %s/[\r \t]\+$//
+autocmd BufNewFile,BufEnter *.rb :%s/[ \t\r]\+$//e set ai sw=2 ts=4 sta et ff=unix
+=======
+autocmd BufRead * silent! %s/[\r \t]\+$//
+autocmd BufNewFile,BufEnter *.rb :%s/[ \t\r]\+$//e
+autocmd BufNewFile,BufEnter *.rb set ai sw=2 ts=4 sta et ff=unix
+>>>>>>> origin/main
 autocmd BufNewFile,BufEnter *.py set ai sw=4 ts=4 sta et fo=croql ff=unix
 augroup filetypedetect
   au BufNewFile,BufRead *.html set filetype=html

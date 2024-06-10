@@ -39,7 +39,8 @@
 
 [user]
   name = Beverly Guillermo
-  email = beverly@developdc.com
+  email = beverly.guillermo@gmail.com
+  signingkey = /Users/beverlyguillermo/.ssh/id_ed25519.pub
 
 [apply]
   whitespace = nowarn
