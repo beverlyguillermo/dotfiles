@@ -2,7 +2,11 @@ alias ls='ls -G --color=auto'
 set fish_greeting
 
 if type -q asdf
-  source (brew --prefix asdf)/libexec/asdf.fish
+  if not contains "$HOME/.asdf/shims" $PATH
+    set -l _asdf_homebrew_prefix (brew --prefix asdf)
+    source $_asdf_homebrew_prefix/libexec/asdf.fish
+    set --erase _asdf_homebrew_prefix
+  end
 end
 
 if type -q starship
