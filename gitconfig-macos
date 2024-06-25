@@ -28,7 +28,7 @@
 [core]
   excludesfile = ~/.gitignore
   editor = vim
-  # pager = delta
+  pager = delta
 
 [delta]
   line-numbers = true
