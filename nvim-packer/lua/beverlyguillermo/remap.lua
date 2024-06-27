@@ -46,3 +46,5 @@ map("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 map("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+

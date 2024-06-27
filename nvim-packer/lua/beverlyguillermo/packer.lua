@@ -11,18 +11,18 @@ return require('packer').startup(function(use)
 
   -- searching for things, also installed ripgrep
   use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.6',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
+    'nvim-telescope/telescope.nvim', tag = '0.1.6',
+    -- or                            , branch = '0.1.x',
+    requires = { {'nvim-lua/plenary.nvim'} }
   }
 
   -- language stuff 
   use {
-	  'nvim-treesitter/nvim-treesitter',
-	  run = function() 
-		  local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-		  ts_update()
-	  end
+    'nvim-treesitter/nvim-treesitter',
+    run = function() 
+      local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+      ts_update()
+    end
   }
 
   -- project tree
@@ -48,9 +48,9 @@ return require('packer').startup(function(use)
 
   -- buffer management
   use {
-	  'theprimeagen/harpoon',
-	  branch = 'harpoon2',
-	  requires = { {'nvim-lua/plenary.nvim'} }
+    'theprimeagen/harpoon',
+    branch = 'harpoon2',
+    requires = { {'nvim-lua/plenary.nvim'} }
   }
 
   -- undo management
@@ -62,18 +62,36 @@ return require('packer').startup(function(use)
 
   -- lsp
   use {
-	  'VonHeikemen/lsp-zero.nvim',
-	  branch = 'v3.x',
-	  requires = {
-		  --- Uncomment the two plugins below if you want to manage the language servers from neovim
-		  -- {'williamboman/mason.nvim'},
-		  -- {'williamboman/mason-lspconfig.nvim'},
+    'VonHeikemen/lsp-zero.nvim',
+    branch = 'v3.x',
+    requires = {
+      --- Uncomment the two plugins below if you want to manage the language servers from neovim
+      -- {'williamboman/mason.nvim'},
+      -- {'williamboman/mason-lspconfig.nvim'},
 
-		  {'neovim/nvim-lspconfig'},
-		  {'hrsh7th/nvim-cmp'},
-		  {'hrsh7th/cmp-nvim-lsp'},
-		  {'L3MON4D3/LuaSnip'},
-	  }
+      {'neovim/nvim-lspconfig'},
+      {'hrsh7th/nvim-cmp'},
+      {'hrsh7th/cmp-nvim-lsp'},
+      {'L3MON4D3/LuaSnip'},
+    }
+  }
+
+  -- tmux vim 
+  use {
+    'alexghergh/nvim-tmux-navigation',
+    run = function() 
+      require'nvim-tmux-navigation'.setup {
+            disable_when_zoomed = true, -- defaults to false
+            keybindings = {
+                left = "<C-h>",
+                down = "<C-j>",
+                up = "<C-k>",
+                right = "<C-l>",
+                last_active = "<C-\\>",
+                next = "<C-Space>",
+            }
+        }
+    end
   }
 
   -- ruby-rails-stuff

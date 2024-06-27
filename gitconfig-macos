@@ -27,13 +27,29 @@
 
 [core]
   excludesfile = ~/.gitignore
-  editor = vim
-  pager = delta
+  editor = nvim
+  # pager = delta
 
 [delta]
+  features = decorations
   line-numbers = true
   navigate = true    # use n and N to move between diff sections
   side-by-side = true
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax
+
+[interactive]
+  diffFilter = delta --color-only --features=interactive
 
 [interactive]
   diffFilter = delta --color-only
@@ -49,15 +65,15 @@
 [apply]
   whitespace = nowarn
 
-[difftool "mvimdiff"]
-  cmd = mvim -f -d \"$LOCAL\" \"$REMOTE\"
+[difftool "nvimdiff"]
+  cmd = nvim -f -d \"$LOCAL\" \"$REMOTE\"
 
-[mergetool "mvimdiff"]
-  cmd = mvimdiff \"$LOCAL\" \"$REMOTE\" \"$MERGED\" \"$BASE\"
+[mergetool "nvimdiff"]
+  cmd = nvimdiff \"$LOCAL\" \"$REMOTE\" \"$MERGED\" \"$BASE\"
   keepBackup = false
 
-[mergetool "araxis"]
-  path = /Applications/Araxis Merge.app/Contents/Utilities/compare
+# [mergetool "araxis"]
+#   path = /Applications/Araxis Merge.app/Contents/Utilities/compare
 
 [alias]
   unstage = reset --hard FETCH_HEAD
