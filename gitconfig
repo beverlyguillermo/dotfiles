@@ -59,8 +59,7 @@
 [alias]
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-  lastb = show --color --decorate --oneline --name-status
-  bl = log -p -M --follow --stat --
+  lastb = show --color --decorate --oneline --name-status --format=short
   edit = ls-files -o -m --exclude-standard
 
 [commit]
