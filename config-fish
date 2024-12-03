@@ -2,29 +2,33 @@ alias ls='ls -G --color=auto'
 set fish_greeting
 
 if status is-interactive
-  if test -d /opt/homebrew # MacOS
-    set -gx HOMEBREW_PREFIX "/opt/homebrew"
-    set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
-    set -gx HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX/homebrew"
-    fish_add_path -mgpP "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin";
-  end
+    # if test -d /opt/homebrew # MacOS
+    #   set -gx HOMEBREW_PREFIX "/opt/homebrew"
+    #   set -gx HOMEBREW_CELLAR "$HOMEBREW_PREFIX/Cellar"
+    #   set -gx HOMEBREW_REPOSITORY "$HOMEBREW_PREFIX/homebrew"
+    #   fish_add_path -mgpP "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin";
+    # end
 
 
-  if type -q asdf
-    if not test -f ~/.asdf/asdf.fish
-      if not contains "$HOME/.asdf/shims" $PATH
-        set -l _asdf_homebrew_prefix (brew --prefix asdf)
-        source $_asdf_homebrew_prefix/libexec/asdf.fish
-        set --erase _asdf_homebrew_prefix
-      end
+    # if type -q asdf
+    #   if not test -f ~/.asdf/asdf.fish
+    #     if not contains "$HOME/.asdf/shims" $PATH
+    #       set -l _asdf_homebrew_prefix (brew --prefix asdf)
+    #       source $_asdf_homebrew_prefix/libexec/asdf.fish
+    #       set --erase _asdf_homebrew_prefix
+    #     end
+    #   end
+    # end
+
+    if type -q starship
+        starship init fish | source
     end
-  end
 
-  if type -q starship
-    starship init fish | source
-  end
+    if test -d $HOME/.bin
+        fish_add_path -mp $HOME/.bin
+    end
 
-  if test -d $HOME/.bin
-    fish_add_path -mp $HOME/.bin
-  end
+    if type -q zoxide
+        zoxide init fish | source
+    end
 end

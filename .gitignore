@@ -1,5 +1,6 @@
 .DS_Store
 nvim/plugin/*
+nvim-lazyvim-org/*
 vim/*
 tmux/plugins
 tmux/resurrect
